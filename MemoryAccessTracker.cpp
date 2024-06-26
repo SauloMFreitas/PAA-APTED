@@ -1,13 +1,12 @@
-#pragma once
-
+#include "includes/MemoryAccessTracker.hpp"
 /**
- * @file Tree_generator.hpp
+ * @file MemoryAccessTracker.cpp
  * @author Bernardo Marques
  * @author Bruno Santiago
  * @author Fabio Freire
  * @author Marcos Antônio Lommez
  * @author Saulo de Moura
- * @brief Classe modelo para gerar as árvores para os testes
+ * @brief Classe gravar a quantidade de acessos na memória
  * @date 2024-06-22
  * 
  * Algoritmo original retirado de:
@@ -27,24 +26,5 @@
  * Algumas funções foram alteradas do algoritmo original ou traduzido para melhor compreensão do grupo.
  */
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <cstdlib>
-#include <ctime>
-#include "../includes/json.hpp"
-
-using json = nlohmann::json;
-using namespace std;
-
-class Tree_generator
-{
-private:
-    string createTree(int depth, char startChar);
-    string createTreeWithNodes(int numNodes, char startChar);
-
-public:
-    Tree_generator();
-    void generateTree(int depth, int numTests);
-    void generateTreeWithNodes(int numNodes, int numTests);
-};
+// Define the static member variable
+long MemoryAccessTracker::accessCount = 0;//inicializa o contador de acessos

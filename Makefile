@@ -1,18 +1,17 @@
 CXX = g++
-CXXFLAGS = -I includes/ -std=c++17 -Wall
-SRCS = $(wildcard source/*.cpp) main.cpp generator/Tree_generator.cpp
+CXXFLAGS = -I includes/
+SRCS = $(wildcard ZHSH/*.cpp) main.cpp generator/Tree_generator.cpp MemoryAccessTracker.cpp
 OBJS = $(SRCS:.cpp=.o)
 EXEC = main
 
 # Verifica o sistema operacional
 ifeq ($(OS),Windows_NT)
-	CLEAN_CMD = if exist source\*.o (del /f /q source\*.o) && if exist main.o (del /f /q main.o) && if exist $(EXEC) (del /f /q $(EXEC))
+	CLEAN_CMD = if exist ZHSH\*.o (del /f /q ZHSH\*.o) && if exist main.o (del /f /q main.o) && if exist generator\Tree_generator.o (del /f /q generator\Tree_generator.o) && if exist MemoryAccessTracker.o (del /f /q MemoryAccessTracker.o) && if exist $(EXEC) (del /f /q $(EXEC))
 else
-	CLEAN_CMD = rm -f source/*.o main.o $(EXEC)
+	CLEAN_CMD = rm -f ZHSH/*.o main.o generator/Tree_generator.o MemoryAccessTracker.o $(EXEC)
 endif
 
 all: clean $(EXEC)
-	./$(EXEC)
 
 $(EXEC): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(EXEC)
@@ -22,3 +21,6 @@ $(EXEC): $(OBJS)
 
 clean:
 	$(CLEAN_CMD)
+
+run: all
+	./$(EXEC)

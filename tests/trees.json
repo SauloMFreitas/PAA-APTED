@@ -1,17 +1,502 @@
 [
-   {
-       "testID":1,
-       "t1":"{q{x{o}}}", 
-       "t2":"{w{x}{g}}"
-   },
-   {
-       "testID":2,
-       "t1":"{o{p{bgy}}}", 
-       "t2":"{o{e}{b{k}{fyy}}}"
-   },
-   {
-       "testID":3,
-       "t1":"{x{z{et}{dbo}}}", 
-       "t2":"{k}"
-   }
+    {
+        "ID": 0,
+        "t1": "{A{B{C{D}{D}}{C{D{E}}{D{E}}}{C}}{B{C{D{E{F{G{H{I}}}{G{H{I{J{K{L}}}}}{H{I}}}{G{H{I}}}{G{H}{H}}}{F{G{H{I}{I}}{H}}}{F{G}{G}}{F}{F{G}}{F{G}}{F}}{E{F{G{H{I{J}}}{H}{H}}{G}{G{H}{H}}}}{E{F}}}{D{E{F{G{H{I}}}{G{H}}}}{E{F}}{E}}{D{E}}{D{E}{E}}}{C{D{E}}{D{E{F}}}}{C{D{E{F}}}{D}{D{E}}{D}}{C{D}{D}}{C}}{B}{B{C}}{B}}",
+        "t2": "{A{B{C{D}{D{E{F{G{H}}}}{E{F}{F}}{E{F}}}}{C{D}{D{E}{E}}{D}}{C{D{E}}}{C}{C}}{B{C{D{E{F{G}{G{H{I}}}}{F{G}{G}}}}{D{E{F}{F{G}}{F}{F}}{E{F}}{E{F{G{H}}{G}}}{E{F}}{E}}{D{E{F}{F{G}}{F{G}}}{E}}{D}}{C}{C}}{B{C{D}}{C{D}}}{B{C{D}}{C{D}}}{B{C{D}{D{E}}}{C{D{E{F}}{E}}{D}{D{E}}{D}}}{B{C{D{E}}}{C{D}}{C}{C{D}}{C}}{B}}"
+    },
+    {
+        "ID": 1,
+        "t1": "{A{B{C{D{E{F{G}}{F}}{E}{E}}{D{E{F}}}{D{E}{E{F}{F}}{E{F}}{E}}{D{E{F}}}{D{E{F}{F}}}{D{E}}}{C{D{E{F{G}}{F}}{E}{E}{E}}{D{E{F{G}{G}}}{E}}{D}{D}}{C}{C{D}}}{B{C}}{B{C{D}{D{E}{E}}{D{E}{E{F}}}{D}}{C}}{B{C{D{E}}{D{E}}{D}{D}{D}{D}}{C}}{B{C{D{E}{E}{E}}{D{E{F}}}{D}{D}}{C{D{E}}{D}{D}}{C{D}}{C{D}}{C{D{E{F}}}}}{B}}",
+        "t2": "{A{B{C{D{E{F{G}}{F{G{H{I}}}{G}}}{E{F}{F{G}{G}}}{E{F{G}{G}}}{E}}{D{E{F{G{H}}}{F}}{E{F{G{H{I}}}{G}{G{H}{H{I}}}{G}}{F{G}}{F}}{E}}{D{E}}{D}{D}}{C{D{E{F}}{E}}{D{E{F{G{H}{H}}}{F}}{E{F{G{H{I}}}{G}}}{E{F}}}}{C{D{E}}{D{E}}{D}{D}}{C{D}}{C{D{E}{E{F}}{E{F}{F}}}}{C{D{E{F{G}{G}}}{E{F}{F}}}{D}}{C{D}}}{B{C}}{B{C}}}"
+    },
+    {
+        "ID": 2,
+        "t1": "{A{B{C{D}}{C{D}}{C}}{B{C{D{E{F{G}}}{E}{E{F}{F}{F}}}}{C}}{B{C{D{E{F}}{E}{E{F{G}}{F{G}}}{E}{E}{E}}{D{E{F{G{H}}{G}}}{E{F}}{E{F}{F}{F}{F}}{E{F}}}{D{E}{E}{E{F{G}}}}{D}{D{E{F{G{H{I}}}{G{H}}}}{E{F}{F{G{H{I}}}}{F{G}{G{H}}}{F}}{E{F}}{E}}{D}}{C{D{E{F}}{E}}{D}{D}{D}}{C{D{E{F}}}{D}}{C{D{E}{E}}}{C{D{E}}}}{B}{B}}",
+        "t2": "{A{B{C{D{E{F{G{H{I}}{H}}{G{H}}}}{E}{E{F{G}}{F}}{E{F}}{E}}}{C{D}{D}{D}}{C}}{B{C{D{E{F}}}{D{E}{E}{E}}{D{E}}{D}}{C{D{E}{E}{E}{E}{E}}{D{E{F}}{E}{E}{E{F}{F}}}{D}}{C{D}{D}}{C}{C}}{B}{B{C{D{E{F{G}{G}}{F}{F}}{E{F{G}{G}}{F{G}{G}{G{H{I}{I}}}{G}{G}}{F}{F}{F{G{H}}{G}}}{E}{E{F}{F}}}{D{E}}}{C}{C}}{B{C}{C}}{B{C}}}"
+    },
+    {
+        "ID": 3,
+        "t1": "{A{B{C{D{E{F}{F{G}{G}}{F}}{E}}{D{E{F{G{H}}{G}}{F{G{H}}{G}}{F}}}{D}{D}}{C{D{E{F}{F{G}{G}}{F}{F}}{E{F{G{H}}{G}{G{H}}}{F}{F}{F}}{E{F}{F}}{E{F{G{H}{H}{H{I}}}}{F{G}}{F}}{E{F{G}{G}{G}}}{E{F{G}{G}}{F{G{H{I}{I}}}}}{E{F}}{E}{E{F{G}}{F}}}{D{E}}{D}}{C}{C{D{E}{E}}{D{E}{E}{E}}}{C{D}{D}}{C}{C}}{B{C{D{E}}}}{B}{B}}",
+        "t2": "{A{B{C}}{B{C{D{E}{E}}{D{E}}{D{E}}}{C{D{E{F}{F{G}}{F}}}{D{E{F}}}}{C{D{E{F{G{H{I}}}}}{E}}{D}{D}{D}}{C{D{E{F}{F}}}{D{E{F{G{H}}{G}}{F}}{E}}{D}}{C{D}}{C{D{E}}}}{B{C{D{E{F{G{H{I}{I}}{H}}{G{H}}{G}}{F}{F{G}}}{E}}{D{E}}}{C{D}}}{B{C{D}}{C{D{E{F{G}}{F}}}{D{E{F}{F}{F}}}}{C}{C}{C}}{B{C{D}}{C{D{E{F}}}}}{B}{B{C}}}"
+    },
+    {
+        "ID": 4,
+        "t1": "{A{B{C{D{E{F{G}{G}}{F}}}{D}}{C}{C{D}{D{E{F{G{H}}{G{H}}}}{E}}{D}}{C}{C{D{E{F{G}}}}}{C}}{B{C{D{E}}{D}{D{E{F}}{E{F}}{E}}{D{E}}}{C{D{E{F{G}{G{H}}}}{E}}{D{E}}{D}{D{E}}{D}{D}}{C{D{E{F{G}}}}{D}{D{E}}{D}}{C}}{B{C{D}{D{E}}}}{B{C{D}}{C{D}{D{E}{E{F}{F}}{E}}{D}}{C}}{B{C{D{E}{E}}}{C{D}}{C}}{B{C{D}}}{B}{B}{B}{B}}",
+        "t2": "{A{B{C{D}{D}{D{E}{E}}}{C{D{E{F}{F}}{E{F{G}}}}{D{E{F}}}}{C{D{E}{E{F}}}}}{B{C{D{E}}{D{E{F{G}}{F}{F{G}}}{E}{E}}{D}{D}}{C{D{E{F}}}}{C{D}}{C}}{B{C{D{E{F}{F}}{E{F{G{H{I}{I}}}{G{H}{H}}{G}{G{H}}{G}}}}{D}{D}}{C}{C{D{E{F}}}{D{E}}{D}}{C{D}{D}}{C{D}{D}{D{E}}{D}}{C{D}}{C}}{B{C{D}}}{B{C{D{E}}{D}{D}{D}{D}}}{B{C}}}"
+    },
+    {
+        "ID": 5,
+        "t1": "{A{B}{B{C{D{E}}{D}}{C{D}{D}{D}}{C{D{E}}{D}}}{B{C{D}{D}{D{E{F}{F}}{E{F}}}}{C{D{E{F{G}}}{E{F{G}{G}}{F}}{E{F{G}{G}}}{E}}{D{E}{E}}{D{E}}{D}}{C}{C{D{E}}{D}}{C}}{B{C{D{E}{E{F}}{E}}{D}{D{E{F{G{H{I}}}}}}{D}{D}}{C{D}}{C{D}{D{E{F}}}{D}}}{B{C{D{E}}{D{E{F{G{H}}}{F}}{E}}{D}{D{E}}{D{E}}}}{B}{B{C{D}{D}}{C}{C{D}}}}",
+        "t2": "{A{B{C}{C}}{B{C{D{E{F}{F}{F}}}{D{E}{E}}{D{E}}{D}}{C{D{E{F{G{H{I{J}}{I{J{K}}{J{K{L}}}}}{H{I}{I}{I}{I}{I}}{H}{H}{H{I}}}{G{H{I}{I}}{H{I}}{H{I}}}}{F}}}{D{E{F}}{E}{E}}{D}}{C{D{E}{E}{E}{E}}}{C{D}{D}{D}{D{E}}}{C}{C{D{E}}{D{E}}}{C{D}{D}}{C}}{B{C{D{E{F{G{H{I}}}}{F}}{E}}{D}}{C{D{E}{E}{E}}}}{B{C}}{B}{B{C}{C}}}"
+    },
+    {
+        "ID": 6,
+        "t1": "{A{B{C{D{E{F{G{H{I}}}}{F{G}{G}}}{E{F{G}}{F{G}}}{E}}}{C{D{E{F}}{E{F}{F}}{E{F}}}{D}}{C}{C{D}}{C{D}{D{E{F}}}{D}}{C}}{B{C{D{E}{E{F}{F}}{E}}{D}}{C{D{E{F}{F}}}{D{E}}{D}{D}}{C{D{E{F{G}}}{E{F{G{H}{H}}{G}{G}}}{E}}{D}}{C{D{E{F{G}}}{E}}{D{E}}}{C}{C}}{B{C{D{E}}{D{E{F{G}}{F}}{E}{E}{E}}{D}}{C}}{B{C{D{E}{E}}{D}}}}",
+        "t2": "{A{B{C{D{E{F{G{H{I{J}{J}}}}{G{H}}}{F{G{H}}{G{H}{H}}{G}}{F{G}{G{H{I}{I}}}{G}{G{H}{H}{H}{H{I}{I}}}{G{H{I{J{K{L{M{N}}}{L}{L}}{K{L}}{K{L}}{K}}}{I{J}}{I{J{K}}{J}}{I}{I{J}}}{H}{H}{H{I}}{H}}{G}}{F{G}}}{E{F{G}}{F}{F{G{H{I}{I}}}{G}}}{E}{E}{E}}{D}{D}}{C}}{B{C{D{E{F}}}}{C{D}}{C}{C}}{B{C{D{E}}{D}}{C{D{E}}}}{B}}"
+    },
+    {
+        "ID": 7,
+        "t1": "{A{B{C}{C}}{B{C{D{E{F}{F{G}}{F{G}}}{E{F}}{E}}{D{E{F{G}}}{E}}{D}}{C{D{E{F{G}}{F}}{E{F}}}{D{E}}{D{E{F{G}}{F}}}{D}}{C{D}{D}}{C{D}}}{B{C{D{E{F}}{E}}{D{E{F}}}}}{B{C{D{E}{E}}}{C{D}{D}}}{B{C{D{E}{E{F}}{E}}{D{E{F}}{E{F}{F{G}}{F}}}{D{E}{E}}{D}}{C{D{E}}{D}}{C{D}{D}}{C{D}}}{B}{B{C}}{B}{B{C}}{B}{B{C}}{B{C{D}}}}",
+        "t2": "{A{B{C{D}}{C{D{E}}}{C}{C}}{B{C{D{E}}{D{E{F}{F}}{E}}{D}}{C}{C}}{B{C{D{E}}{D{E{F}}}{D}}{C{D}}{C{D}}{C{D}}{C{D}}{C{D}}}{B{C{D}{D}}{C}{C}}{B{C{D{E{F}{F{G}}{F{G{H}}{G{H}}}{F{G{H{I}}{H}{H}}{G{H}}}}{E{F}{F{G{H}}}{F{G}}}{E}{E{F}}}{D}{D{E{F{G}{G}}}}{D}}{C{D{E{F}}}{D{E}}}{C}{C}}{B{C}}{B{C{D{E}}{D}}{C}}{B}{B}}"
+    },
+    {
+        "ID": 8,
+        "t1": "{A{B{C{D{E{F{G{H{I}}{H{I}}{H{I}}}{G}}{F{G}}{F}}{E{F{G{H{I}}{H}{H}{H}}}{F}{F}{F}}{E{F{G}}{F}{F}}{E{F{G{H{I{J}}}}{G{H}}{G}}{F{G{H}}{G}}{F{G{H}{H{I}}}{G}}{F}{F}}{E{F}}}{D{E}}{D{E{F{G}{G{H{I}}}{G{H}{H}}}{F{G}}}{E}{E}{E{F{G}}}}{D}{D{E{F}}{E}{E{F}}}}{C{D}{D{E{F{G}}}}}{C{D}}{C{D{E}{E{F}}}{D}}}{B{C}{C}}{B}}",
+        "t2": "{A{B{C{D{E}}{D{E}}{D{E}}}{C{D{E{F}}{E}}{D}{D}}{C}}{B{C{D{E}{E}{E{F{G}}{F}}{E}{E}}{D}}{C{D{E}}{D{E{F{G}}{F{G{H}{H}{H}{H}}{G{H}}}{F{G{H{I{J}}{I}{I}}{H{I{J}}}{H}}}{F}{F}}{E{F{G{H}}{G{H{I}}}}{F}}{E{F{G{H}}}}{E{F{G}}{F}}{E}{E}}{D}}{C}{C{D}}}{B{C{D{E{F}}}{D{E}{E}}{D}}{C}}{B{C{D}}{C}{C}}{B{C{D}}}{B{C}{C}}}"
+    },
+    {
+        "ID": 9,
+        "t1": "{A{B{C{D{E}{E}}}{C{D{E{F{G{H{I{J}{J}}}}}{F{G}}}{E}{E}}{D}{D}}{C{D{E{F}}{E{F}}{E}}}{C{D{E{F}}}{D{E{F}}}{D{E{F{G}{G}}{F}{F}}{E{F{G}{G}{G}}{F}}{E{F{G}}}{E}}{D{E{F}}}{D{E{F}}}{D{E{F{G{H}}}}}}{C{D{E{F{G{H{I}}}}}{E{F}}{E{F{G}}{F}}}{D}{D{E}}}{C{D}{D}}}{B{C}}{B{C{D}{D}{D}}{C}}{B{C{D{E}{E}{E}{E}{E}}{D}}{C}}}",
+        "t2": "{A{B{C{D{E{F{G}{G{H{I}}{H{I}}}{G{H{I}}}{G}}{F}}{E{F{G}{G}}}}{D{E{F}}}{D}{D{E{F{G}{G{H}}}}{E{F}}{E{F}}}{D{E}}{D{E}}}{C{D{E{F{G}}}{E{F}}{E}{E}}{D{E{F}}}{D}}{C{D{E{F{G}}}}{D{E}{E}{E}}{D}}{C}}{B{C{D{E{F{G{H}}{G}}{F}}{E{F}{F{G}}}{E}{E}}{D{E{F}}{E{F}}{E}}{D}}{C{D{E{F}}}}{C{D}}{C}}{B{C{D{E{F}}}}{C}}{B{C}}}"
+    },
+    {
+        "ID": 10,
+        "t1": "{A{B{C{D{E{F{G}{G}}}{E}}{D{E{F{G{H{I{J{K}}}}{H}}{G{H}}{G{H}}{G}}{F{G}}}{E{F{G{H{I}{I}}}}{F}}{E{F}}}{D{E}}{D{E{F{G}{G{H{I{J}}}{H}}}}{E{F}{F}{F{G}}}{E}{E}}{D{E{F}{F}}{E}}{D}{D{E}}{D}}{C{D{E}{E}}}{C{D{E}{E}}{D}}{C{D}{D{E}}}{C{D{E}{E{F{G}}}{E}}{D{E{F}{F}}{E}}{D}}{C}{C}}{B{C{D}}{C{D{E}}}}{B{C{D{E}}}}{B}}",
+        "t2": "{A{B{C{D{E{F{G}{G}}{F{G{H}}{G{H{I{J}}}{H{I}}{H{I}{I}}}}{F{G{H}}}{F}}{E{F}}{E{F{G{H{I}}{H}}}}{E{F{G{H{I}}}}}{E}}{D{E}{E{F}}}{D{E}{E}{E}}{D{E}{E}}{D{E{F}{F}}{E}}{D}{D}}{C{D{E{F}{F{G}}}{E{F}}{E{F}}{E}}{D{E}{E{F}{F{G}}}}}}{B{C{D{E}{E{F}{F}}}{D}}{C{D{E}{E{F{G{H}}}}}}{C}{C{D{E}}{D}{D}}{C{D}}}{B{C{D{E}}}}}"
+    },
+    {
+        "ID": 11,
+        "t1": "{A{B{C{D}{D}}{C{D{E}}}{C{D{E{F}}{E{F}}}{D{E{F{G}}{F}{F}}{E{F}{F}{F}}{E}}{D{E{F}{F}{F}}{E{F{G}}}}{D}}{C}{C}{C{D}}}{B{C{D{E}}}{C{D{E{F}{F{G}}{F}}{E}}{D{E}}{D}{D{E}}}{C{D{E{F}}}}{C{D{E{F{G{H}{H{I}}{H}}}{F}{F}}{E{F}}{E}}{D{E{F{G}}{F{G}}}}{D{E}{E{F}}}{D}}{C}{C{D{E{F}}}}}{B{C{D{E}}{D}{D}{D}}}{B{C}{C}}{B}}",
+        "t2": "{A{B{C{D}{D}}{C{D}{D}}{C{D{E}{E}{E}}}}{B{C{D{E{F{G}{G}{G}{G}}{F}}{E{F{G{H{I}}}{G{H{I}}}}{F}}{E{F{G{H}}}}{E}}{D{E{F}}{E{F{G{H{I}{I}}}}{F}{F}}{E}}{D{E}}{D}}{C{D{E{F}{F{G}}}}{D}{D{E}}{D}}}{B{C{D}{D}}{C{D{E{F}}{E{F}}}{D{E}}{D}{D}{D}}{C}}{B{C{D}}}{B{C{D{E}}{D{E}}}{C{D{E{F}{F}}}{D}{D}}{C}}{B{C{D}}}{B}{B}}"
+    },
+    {
+        "ID": 12,
+        "t1": "{A{B{C{D{E}}}{C{D{E}{E{F}}{E{F}{F}}{E}}{D{E}{E}}{D}{D}{D}}{C{D}{D{E{F}{F}}{E}}}{C{D}{D{E{F}{F}}}}{C{D{E}{E{F}{F}}}{D}{D}{D}{D}}{C{D}{D}}{C{D}}{C}}{B{C{D}}}{B{C}{C{D{E}}{D}}{C{D{E{F}}}{D}}{C{D{E}}}}{B{C{D{E{F}}}}{C}}{B{C{D}{D}}{C{D{E}}{D}{D{E}}}{C{D{E}}{D}}{C}{C}{C}}{B{C{D}{D}{D}}{C}{C{D{E}}{D}}}{B}}",
+        "t2": "{A{B{C{D{E{F}}}{D{E{F{G{H{I}}{H}{H}}}{F}{F{G{H}}}}{E}}{D}}{C}}{B{C{D}{D}}{C{D{E{F}{F}{F}}}{D{E}}{D{E}{E{F}}}{D{E{F}{F}{F}}}{D{E}}}{C{D{E}{E}}}{C{D{E{F}}}{D}{D{E}{E}}}{C{D{E}{E{F}}{E}}{D{E}{E{F}}}{D{E}{E}}{D}}{C}{C}}{B{C}{C{D{E{F}{F{G}}}{E{F}}}{D}}{C{D{E}{E}}{D}}}{B{C{D}{D}}{C{D}}}{B{C}{C{D}}}{B}{B}}"
+    },
+    {
+        "ID": 13,
+        "t1": "{A{B{C{D{E}{E}{E}{E}}{D{E{F{G{H{I}}}{G}}{F{G{H}}}{F{G}}}{E{F{G{H{I}{I}{I}{I}{I}}{H}}{G}}}{E{F}{F}}}{D{E{F{G}}}}{D{E{F{G}{G}}{F}{F}}}{D{E}}}{C{D{E}{E}}{D}{D}}{C{D}}{C}}{B{C{D{E{F{G{H{I}}}{G}}{F{G}}{F{G{H}}}{F}{F}{F}{F}}{E}}{D{E}}{D{E{F{G}}{F}}}{D}}{C{D{E}}}{C{D}{D}{D}{D}{D}{D}}{C{D}}{C}}{B{C}{C}{C}}}",
+        "t2": "{A{B{C{D}{D}}{C{D{E{F{G{H{I}{I}}}{G}{G{H}{H}{H{I}}}{G}}{F{G{H}{H}}{G}}{F{G}}}{E{F{G{H}}}{F}}{E}{E}}{D{E{F{G}{G{H}}{G{H}}{G}}{F}}{E{F}{F}}{E{F}}{E{F}}{E}}{D{E{F}}}{D{E}}{D{E}{E}}{D{E}}}{C{D}}}{B{C{D}{D{E{F}}}}{C{D{E}{E}}}{C{D}{D}}{C{D{E{F{G}}}}{D}}{C{D{E}{E}}}}{B{C}{C}{C{D}}{C{D{E}}}{C}{C{D}}{C}{C}}}"
+    },
+    {
+        "ID": 14,
+        "t1": "{A{B{C{D}}{C{D}{D}}{C}}{B{C{D{E}{E}}{D}}{C{D{E{F}}}{D{E}{E{F{G{H{I{J{K}{K}}}}{H}{H}}}{F{G}{G}}}{E{F{G}{G{H}}}{F}}{E}{E}}{D{E{F{G{H}}}{F}}{E}}{D{E}{E}{E}}{D}{D{E}{E}}}{C{D{E{F{G}{G}}}}{D{E{F}{F{G{H}{H}}{G{H}{H{I}}}}}{E{F{G}}}}}{C{D{E{F{G}}{F}}{E}}{D{E}}{D}}{C}}{B{C{D}}{C{D}}{C}}{B}{B{C{D{E}}}{C}{C}}}",
+        "t2": "{A{B{C{D}}{C{D{E{F}{F{G}{G}}{F}{F{G}{G}}}{E{F}}{E}}}{C{D{E}{E{F}}}{D}}{C}{C}{C{D{E}}}}{B{C{D{E{F{G{H}}}{F{G}{G{H}}}}{E{F{G{H{I}}{H{I{J}}}}}{F{G}}}{E}}{D{E{F}}}}{C{D{E{F{G}}}}{D}}{C}{C{D}}{C}{C{D}}}{B{C{D{E}{E}}{D}{D}{D}}{C{D}}}{B{C{D{E{F}}{E{F}{F}}}}{C{D}}{C}{C{D}}}{B{C{D}}{C}}{B{C}{C{D}}{C}}{B}{B}}"
+    },
+    {
+        "ID": 15,
+        "t1": "{A{B{C{D{E{F}{F{G}{G}{G}}}{E{F}{F}}{E{F}{F}}}{D{E{F{G{H}}{G{H{I}{I{J}}{I}}{H{I{J{K}}}{I{J}}{I{J}}{I{J}}{I{J}}}}{G{H{I{J{K}}}}{H}}{G}}}{E{F}{F}{F{G{H}}}}{E{F{G{H{I}{I}{I}}{H{I{J}}{I{J}}}{H{I}}{H{I{J{K}{K}}}}{H{I}}{H{I}}}{G}{G{H}}{G{H{I}}}}{F{G}}}}{D{E{F{G}}}{E}}{D{E}{E{F}}{E{F}}}}{C{D{E{F}}}{D{E}}}}}",
+        "t2": "{A{B{C{D}{D{E{F{G}{G}{G}}{F{G}}{F{G}}}}{D{E{F{G{H{I}}}}}{E}}{D}{D{E}}}{C{D}{D{E{F{G}}}{E}}{D{E}}}{C{D}}{C}}{B{C{D{E{F{G{H}}{G{H}}{G}{G{H}{H}}}}{E{F}}{E{F}}}{D}{D{E}}{D{E{F{G}}}{E{F{G}}{F}}{E}}{D}{D}}{C{D}{D{E{F}{F{G}{G}}}}{D}}{C}{C}{C}{C}}{B{C{D}{D}{D}}}{B{C{D{E{F}}{E}}}{C{D{E{F}}}{D}}{C}}{B{C}}{B}}"
+    },
+    {
+        "ID": 16,
+        "t1": "{A{B{C{D}{D{E}}}{C{D{E}}{D{E}}{D}}{C}}{B{C{D{E{F}}{E}{E{F}}{E{F}}}{D{E{F}{F{G}{G}}}{E{F{G{H}}{G}}{F{G}}{F}}}}{C{D{E{F{G}}{F}{F{G}{G}}{F{G{H}{H}}{G}}{F}}}{D{E}{E}}{D}{D{E}}}{C{D{E{F}{F{G}}{F{G}}}}}{C}}{B{C{D{E{F{G}}{F}}{E{F{G{H}}{G{H}}{G{H}}}{F{G}}}}{D}{D}}{C{D{E}}{D{E}{E}}{D}}}{B}{B{C}}{B{C}{C}}{B}}",
+        "t2": "{A{B{C{D{E{F{G}{G{H{I}{I}}}{G}}{F{G}}{F{G}{G}}{F}}}{D{E}{E{F}}{E{F}}}{D{E{F{G{H}{H{I{J}{J}}{I{J}}}}{G{H{I}}{H}}}{F}}{E{F{G{H{I}}}}{F}{F}}{E{F}{F}}}{D{E{F}}}{D{E}}{D{E}{E}}{D{E}}{D}{D}}{C{D{E{F}}{E{F{G}{G}{G}{G}{G}}}{E{F{G}{G}{G}}}}{D}{D{E}{E}}{D}{D{E{F}}}}{C{D}{D{E}{E}}{D}{D}}{C{D}}{C}{C}}{B{C}{C}}}"
+    },
+    {
+        "ID": 17,
+        "t1": "{A{B{C{D{E}}{D}{D}}{C{D{E}{E{F}}{E{F}{F}}}{D}}{C}}{B{C{D}{D{E{F}{F{G}}}{E}}{D}{D{E}{E}}}{C{D{E{F{G}}{F{G{H}{H}}{G{H}}}{F{G{H}}}{F{G}}{F}}{E{F{G}}{F{G{H}}{G}{G}{G}}{F}}{E{F{G}}}{E{F}{F}}{E{F}}}{D{E{F}{F{G}}{F}}{E}{E{F}}{E{F}}{E{F{G}}}{E{F}}}{D{E}{E}}{D}}{C{D{E}}}{C}}{B{C{D}{D}}}{B{C{D{E}}{D}}{C{D}}}}",
+        "t2": "{A{B{C{D}{D{E{F}}}{D{E}{E{F{G}{G}}{F{G}{G{H}}}{F{G}}}{E{F}{F}}{E{F}}{E{F}}{E}}{D{E{F}{F}}{E}{E}}}{C{D{E{F{G}{G}{G}}{F{G}}{F}}{E{F{G}{G}{G{H}{H}}}{F{G}{G{H{I{J{K}}}}}}}{E}}{D{E}}}}{B{C{D}}{C}{C{D{E{F{G}}{F}}{E{F}{F}}{E{F}}}}{C{D}{D}}{C}{C}{C{D}}}{B{C}{C}{C{D{E}{E}}{D}{D}{D}}{C{D}}{C{D{E}{E}}}{C}}{B}}"
+    },
+    {
+        "ID": 18,
+        "t1": "{A{B{C{D{E}{E}{E}}{D{E}}}{C{D{E{F{G{H{I{J}{J}{J}}{I{J}{J}}{I}{I}}}{G}}{F{G}}{F}{F{G{H{I}}}{G}}{F}{F{G}}{F}}{E{F{G{H}}{G{H{I{J}}}}{G}}{F}}{E{F}}{E{F}}{E}}{D}{D{E}}{D}}{C{D{E{F}}{E}}{D}{D{E}}{D{E}}}{C{D}}}{B{C{D{E}}}{C{D{E}}{D{E}}}}{B{C{D{E}}{D{E{F}}{E}}{D}{D}}{C{D{E{F}}{E}}{D{E{F}}}{D}{D{E}}}{C}{C}}}",
+        "t2": "{A{B{C{D{E{F{G}{G}}{F{G}}{F{G{H}}}}{E{F}{F{G}}{F{G}{G}}{F{G{H}}}}{E}{E{F}}{E}}{D{E{F{G{H{I{J{K{L}{L}}{K}}{J{K}}{J}}}{H{I}}{H{I}}}{G{H{I{J{K}{K}}}{I{J}}}{H}}{G{H{I}{I{J}}}}{G{H}{H}{H}}}}{E{F{G{H}}}}{E{F}{F}}}{D{E}}{D}}{C{D{E}{E}{E{F}{F}{F}}{E}}{D{E}}}{C{D{E}}}{C}{C{D{E}{E{F{G}}}}}{C}{C}{C{D}}{C}}{B}}"
+    },
+    {
+        "ID": 19,
+        "t1": "{A{B{C{D{E{F{G{H}}{G{H}}{G{H}{H}}}{F}{F}}{E{F}}{E}}{D{E{F{G}}}{E{F{G{H}}}}{E}}{D}{D{E}}{D{E}{E}}{D{E}{E}}}{C{D{E{F}{F}}{E{F{G}}}}{D}}{C{D}}{C}{C{D{E{F{G}}{F}{F}}{E}}{D{E}{E{F}{F}}}{D{E}{E}}{D{E}}{D}}{C{D}}{C}{C}}{B{C{D{E}{E}{E}{E{F{G}}{F}}{E{F{G}{G{H}}}}}{D{E}{E{F}}}}{C{D{E{F}}}}{C{D}}{C}}{B}{B}{B}}",
+        "t2": "{A{B{C{D{E{F{G}{G{H{I}{I{J{K}}{J}}}}{G{H}}{G}}}}{D}{D{E{F}}{E}}}{C{D{E}}}}{B{C{D{E}{E}}{D{E{F}{F{G}}}{E{F}{F}}}{D{E}}}{C{D{E{F}{F{G}}{F}}{E{F{G{H{I}{I}}}{G{H}}{G{H}}}{F}}{E}}{D{E{F{G}}{F{G}{G}}{F{G}}{F{G{H}}{G{H}}}}{E{F{G{H{I}}}{G{H}}}{F}}{E}{E}}{D{E{F{G}}}{E{F}}}{D}}{C{D{E{F}}}}{C}}{B{C{D}}{C}}{B}}"
+    },
+    {
+        "ID": 20,
+        "t1": "{A{B{C{D{E{F{G{H}{H}}{G{H}}{G{H{I}}}{G}}{F{G{H}}}{F{G{H{I{J}{J}}}}{G{H}}}{F{G}}{F}{F{G}}{F}{F}}{E{F}}}{D{E{F{G}}}{E{F{G{H}}}{F}}{E}{E}{E}{E}}{D{E{F{G{H}}}{F{G}{G{H}}}}{E}{E}}}{C{D{E}}}{C{D}{D}}{C{D{E{F}}{E{F}{F}}{E}}{D}}{C{D{E{F{G}}{F}{F}{F}}{E{F{G{H}}{G}{G}}}}{D{E{F{G}}}{E{F}}}}{C}{C{D}}{C}{C}}{B}}",
+        "t2": "{A{B{C{D{E{F{G}{G}}{F{G{H}}{G}}{F}}{E}{E{F{G{H}}}{F}}{E}{E}}{D{E{F}{F{G}{G}}{F{G}{G{H}}}{F}{F}}{E}{E}{E{F}{F}{F}}{E}}{D{E{F{G{H{I}{I}{I{J}{J}}}}}}{E{F{G}{G}}}}{D{E}{E}}{D}{D}{D{E{F}{F}{F}}}}{C}}{B{C{D{E}{E{F}{F{G}}{F}{F}}{E{F}}{E{F}}}{D{E}}{D}{D}}{C{D}{D{E{F{G}}}}}{C{D}}{C}{C}{C{D}}{C}}{B{C}}{B{C}}}"
+    },
+    {
+        "ID": 21,
+        "t1": "{A{B{C{D{E}{E}}{D}}{C{D{E{F{G}{G}}{F}{F}}{E{F}{F{G{H{I}{I}}}{G}}{F}}{E{F}{F{G}}{F}{F}}}{D{E}}{D{E{F{G}}{F}{F}}}}{C{D}{D{E}}}{C}{C}}{B{C{D}{D}{D}}{C{D}{D{E{F}{F}}}{D{E}{E}}}{C{D}{D{E{F{G{H}}}{F{G}}}}}}{B{C{D{E}{E}}{D{E{F{G}{G}}}{E{F{G}}{F{G}}}}{D}}{C{D{E{F}}{E}}{D}{D{E}{E{F}}{E}}}}{B{C}}{B{C}}{B{C}}}",
+        "t2": "{A{B{C{D{E}{E{F{G}{G}}{F{G}}{F}}}{D{E}{E}{E{F{G}}{F}}}{D}}{C{D{E}}{D{E{F{G}}{F}}}{D{E}}}{C{D{E{F{G}}{F{G}}{F{G}}}}{D{E}{E}}}{C}}{B{C{D{E}}{D}}{C{D{E{F{G}}{F}{F}}{E{F}{F{G}{G{H}}{G}}}{E{F}{F}}{E}{E}}{D{E}}{D}{D}}}{B{C{D{E}}{D}}}{B{C}{C{D}{D}{D{E}}}{C{D}{D}}{C{D}}}{B}{B{C{D{E{F}}{E{F}}}{D{E}}}}{B}{B}}"
+    },
+    {
+        "ID": 22,
+        "t1": "{A{B{C{D{E{F}{F}}{E{F}}{E}}{D}{D}}{C{D{E{F{G}}}{E}{E{F{G}}{F}{F}}}{D{E{F}}}}{C{D{E{F}{F{G}{G}}}{E{F}{F}}}{D{E}{E{F{G{H}}{G}}}{E{F}}{E{F}}}{D{E{F}}}{D}{D{E}}}{C{D{E}}{D{E}{E{F}}}}{C}}{B{C{D{E{F}}{E}}{D{E{F{G{H}}{G{H}}}{F}{F}{F}}{E}}{D{E{F{G}}}{E}}{D}}}{B{C{D{E{F}}{E{F}}{E{F}}{E}}}{C{D}}{C{D}}}{B{C}}}",
+        "t2": "{A{B{C{D{E}{E{F{G{H}{H}{H{I}}}}}{E{F{G}{G}}{F}}}{D{E}}{D}}{C{D{E}{E}}{D{E{F{G{H}{H}}}}{E{F{G{H{I}{I}}}{G}}}{E}}{D}{D}}{C{D{E}}{D}}{C}}{B{C{D{E}}{D{E{F{G{H}{H}}{G{H}}{G{H{I}}}}{F}}}{D{E{F}{F}}{E}}{D{E}}}{C{D}}}{B{C{D{E{F}}{E{F}}}{D{E}{E}{E}}{D{E}}}{C}{C{D}{D}}}{B}{B{C{D{E}{E}{E}}}{C{D{E}}{D}}}{B}{B}}"
+    },
+    {
+        "ID": 23,
+        "t1": "{A{B{C{D{E{F{G}{G{H{I}}{H}}}}{E{F{G}{G}{G}}{F}{F}}{E{F}{F}}}{D{E{F{G}{G}{G}{G}}{F{G{H}}}{F{G{H}}{G}}{F{G}}{F}}{E{F{G}}}}{D{E}}{D{E{F{G}}}{E{F{G}}{F{G{H}}}{F}}}{D}{D{E{F}{F}}}{D}}{C{D}{D}{D{E}{E{F}}{E}}}{C{D{E{F}{F}}}{D{E{F}{F}}}{D}}{C}}{B{C{D{E{F{G}}{F}{F}}{E}}}{C{D}}{C}{C{D{E}}}{C{D{E}}}{C}{C}}{B}}",
+        "t2": "{A{B{C{D{E{F}}}{D{E{F}}}}{C{D{E}}}{C{D{E}}{D}}{C{D}{D}}{C{D}}{C}{C}}{B{C{D}}}{B{C{D{E{F{G{H}}}{F{G}{G}}{F{G}{G}}{F}}{E}{E{F}}{E}}{D}{D}}{C}{C{D{E{F}}{E{F{G}}{F}}}}{C}{C{D}{D{E}{E}}{D{E}{E{F}{F}}}}{C}{C}{C}}{B{C{D{E}{E}}{D}}{C}{C{D{E}}{D{E}}}{C{D{E}}{D}}{C}{C}}{B{C}}{B{C{D}{D}{D}}{C}{C}{C}}{B}{B{C}}}"
+    },
+    {
+        "ID": 24,
+        "t1": "{A{B{C{D{E}}{D{E{F}{F{G{H{I}}}{G}{G}}{F{G}{G}}}{E{F{G}}}}{D{E{F}}{E{F{G}}}{E{F}{F{G}}}{E}{E}{E}}{D}}{C{D{E{F}{F}}{E}{E}}{D{E}}{D}}{C{D}}}{B{C{D{E{F{G}{G{H}}}}{E{F}}{E{F}{F{G}}}}{D}{D{E{F{G}}{F}}}{D}{D{E{F{G}}}}}{C{D}{D{E}}}{C{D{E}}{D{E}}{D}{D}}{C}}{B{C{D}{D}}}{B{C{D{E}}{D}}{C}{C{D}{D}}{C}}{B{C}}{B}}",
+        "t2": "{A{B{C{D{E{F{G{H{I}{I}}{H{I}{I}}}}}}{D{E{F{G}}}{E{F}}}{D}{D{E}}{D{E{F{G}}}{E{F}}{E{F}{F}}{E}}{D}{D}}{C{D}{D{E{F}}{E}{E{F{G}}}{E}}}{C}{C{D}}}{B{C{D}{D}}{C{D{E{F}}{E}}}{C{D}{D}}}{B{C{D{E{F{G}}{F}{F}}}}{C{D}{D}}{C}}{B{C{D{E{F}{F{G}}}{E}}{D{E{F{G}{G}}}{E}{E}}}{C{D}}}{B{C}{C{D{E}}{D{E}}}}{B{C{D}}}{B}{B}}"
+    },
+    {
+        "ID": 25,
+        "t1": "{A{B{C{D{E{F{G{H{I{J}{J}}}}}}{E{F{G}}}{E}}{D{E{F{G}}{F}{F{G}}{F}}{E{F{G{H}}{G}}}{E{F}{F}}}{D{E}}{D}}{C{D{E{F{G{H}}{G{H}}{G}}{F{G}{G}{G{H{I}}}}}}{D{E{F}}{E{F{G}}{F}{F}}{E}}{D{E}}{D}}{C}{C{D{E{F}{F{G}}}}{D{E{F{G}}{F}}{E}}{D{E{F}{F}}}}{C{D{E}}{D}{D}{D{E{F{G}}}{E}{E}}}{C{D{E}{E}}}{C{D}{D{E}{E}{E}}}}{B}}",
+        "t2": "{A{B{C{D{E{F{G{H}{H}{H}{H}}{G{H{I}}}}{F}{F{G}{G{H}}{G}}}{E{F{G{H{I}}}}{F}}{E{F}}{E{F{G}}}{E}{E{F}}}{D{E{F{G{H{I{J}}{I{J{K}}}{I{J}}{I}}}{G{H}}}{F}}{E}{E}}{D{E}{E}}{D{E{F{G{H}}}{F}}{E{F{G}}}{E{F}}}{D}{D}}{C{D}{D{E}{E{F{G}}}}{D{E}}{D}{D{E}}}{C{D{E}}}{C{D}}{C}}{B{C{D{E}}{D}}{C}}{B{C}{C{D{E}}{D}}}{B{C}}}"
+    },
+    {
+        "ID": 26,
+        "t1": "{A{B{C{D{E{F}}{E{F}{F}}{E}}{D{E{F{G}}}}}{C}}{B{C{D{E{F}}{E}{E{F}}{E{F{G}{G}}{F}{F}}}{D{E}{E}}{D}}{C{D}{D}}{C{D}}{C}{C{D}{D}{D}}{C}}{B{C{D{E{F}{F{G{H}}{G}{G{H}}}{F{G}}{F}}{E}{E}}}{C{D}{D}}}{B}{B{C{D{E{F{G}}{F{G}}{F{G}}{F{G{H}}{G}}{F}{F}}{E}}{D{E{F}{F}}{E}}{D{E}}{D}}}{B{C{D}}{C{D}}{C{D}}}{B{C{D}}{C}}}",
+        "t2": "{A{B{C{D{E{F}}{E{F{G}}}}{D{E{F}}}}{C{D}{D{E{F}{F}}}{D{E{F{G}}}}}{C{D{E}{E}{E{F}{F}}{E{F}{F}}{E}}{D}}{C{D{E}}{D}}}{B{C{D}}{C}}{B{C}{C{D{E{F}}{E{F{G}}{F}}{E}}{D{E{F{G}{G}}{F}}{E}}{D{E{F}{F}}{E}}{D{E}}{D{E}}}}{B{C{D{E}}{D{E}}}{C{D{E}}}{C{D{E}}}{C{D{E}{E}{E}}{D}{D}}{C{D{E}}}{C}{C}}{B{C}{C}}{B}{B{C}}{B}}"
+    },
+    {
+        "ID": 27,
+        "t1": "{A{B{C{D{E}{E}{E}}{D{E{F}}{E{F{G}}{F{G}}}}{D{E{F{G{H}}{G{H}}}}}{D{E{F{G}{G}}{F}}{E{F{G}}}{E}}}{C}{C{D}{D}}}{B{C{D{E{F{G{H}{H}{H}}}{F}}{E{F}}{E}{E}}{D}}{C{D{E{F}}{E}}{D{E{F{G{H}}{G{H}}}{F{G{H}}}{F{G}}}{E{F{G}}}{E{F}{F{G}}}}{D{E}{E{F}{F}{F}}{E}{E}}{D}{D{E}{E{F}}{E}}{D}}{C{D}}{C}}{B{C{D}}{C}{C}}{B{C}}}",
+        "t2": "{A{B{C{D{E}{E}{E}}{D{E{F}{F}{F}{F}}{E}{E{F}}}{D}{D{E}}{D}{D}}{C{D{E{F{G{H}}}}}{D{E{F}}}{D}{D}}{C}{C{D}}}{B{C{D}}{C{D{E{F}}}}{C{D{E}}{D}}{C{D}}}{B{C{D{E{F{G{H}}}{F}{F}}{E{F}}{E{F}{F{G{H{I}{I}}{H}}}{F}}}{D}{D{E}}{D}}{C{D{E}{E}}{D}{D}}{C}}{B{C{D}{D{E}{E}}}{C{D}}{C{D}{D{E}}{D}}{C{D}}{C}}{B{C{D{E}}}}{B}}"
+    },
+    {
+        "ID": 28,
+        "t1": "{A{B{C{D{E{F}}{E{F}}}{D{E{F{G{H{I{J{K}}{J}}{I}}{H}}{G{H}{H{I}}{H}{H}}{G}{G}{G{H}}{G}}{F{G{H}{H{I{J}}}}{G{H}{H}}{G}{G{H}}}{F}{F}{F}}{E{F}{F}{F}}}{D{E{F{G{H}}}}{E}{E{F}}{E}}{D}}{C{D}}{C{D{E}{E}}}{C{D{E}}{D{E}}}{C{D{E{F}}}}}{B{C{D}}{C}}{B{C}}{B{C{D{E}}}{C{D{E}{E}{E}}{D}}{C{D{E}}}{C}}{B}{B{C}}{B}{B}{B}}",
+        "t2": "{A{B{C{D}}{C{D{E{F{G}}}{E{F}{F{G}}}{E{F}}{E}}{D{E{F{G}}}{E{F{G}}{F{G}}}{E{F}}{E}}{D{E{F{G}{G}}}{E{F}}{E{F}}}{D{E{F{G{H}{H}}{G{H}{H}}}{F{G{H}}}{F}{F}}{E}}{D{E{F}}}}{C{D}{D{E{F}{F}}{E}}{D{E{F}}{E{F}{F}}{E}}}{C{D{E{F{G}}}}{D}}}{B{C{D{E{F{G}}}{E{F}{F{G}}{F}}{E}}{D{E{F}{F}}{E{F}}{E}}}{C}{C{D{E}}}}{B{C}}}"
+    },
+    {
+        "ID": 29,
+        "t1": "{A{B{C{D{E{F{G{H}}}}}{D{E{F{G}}}{E{F}}{E}{E}}}{C{D{E{F{G}{G}{G{H}}}{F{G}{G}{G}}}}}{C{D{E{F{G{H}}{G}}{F{G}{G}{G}}{F}{F}{F}}{E}}{D{E{F{G}}{F{G}}}{E{F}}{E}}{D}{D{E}}{D}{D}}{C{D}{D{E{F}}}}{C{D{E}{E{F{G}}}{E{F{G}}}{E}}{D{E{F}{F}}{E}}}{C{D}}}{B}{B{C{D{E{F}}{E{F{G}}}}{D}{D{E{F}}{E}}{D}}{C}}{B{C}}{B}{B{C}}}",
+        "t2": "{A{B{C{D{E{F{G{H{I{J}}{I{J}}}{H{I{J}}}{H{I{J}}}}}{F{G}{G}{G}}{F}}{E}{E{F}}}{D{E{F}{F{G{H}}{G}{G}}{F}}{E{F}{F{G}}}}{D}{D{E}}{D{E{F}}}{D{E}}}{C{D{E}}}{C}{C{D}}}{B{C}}{B{C}{C{D}{D}{D}}{C}{C{D{E{F}}}{D{E}}}{C{D{E{F}}{E}}}}{B{C{D}{D{E{F}}}{D{E}{E}}{D}}{C}{C}}{B{C}{C{D}}{C{D}{D}}{C}{C}}{B{C{D}}{C{D}}{C}}}"
+    },
+    {
+        "ID": 30,
+        "t1": "{A{B{C{D{E{F}}{E{F{G{H}}}{F{G{H{I}}{H}}{G}{G}}{F}}{E}}{D{E}}{D{E{F}}}{D{E{F}{F}{F}}}{D{E}}}{C{D{E{F{G{H{I{J}}}{H{I}}}{G}}}}{D}}{C}}{B{C{D}{D}}{C}}{B{C{D{E}{E{F}}}{D{E{F{G{H{I}}}}}}{D{E{F{G{H}{H}}{G{H{I}{I{J}}}{H{I{J}}}}{G}{G{H}}}}{E{F{G}}{F{G}}}{E{F}{F}}}{D{E}}{D{E}{E}}{D}}{C{D}}{C{D{E}}}}{B}{B{C}}}",
+        "t2": "{A{B{C{D{E{F{G{H{I{J{K}}}{I}{I}{I}}{H{I}{I}}}{G{H{I{J}}}}}{F}}{E{F{G{H}}{G{H{I}}{H}{H}{H}}{G{H{I}}}}}}{D{E}{E{F}}{E}}{D}{D}}{C{D{E}{E{F{G{H{I}{I}}}}{F}}{E}}{D{E{F{G}}{F{G}}}{E{F{G{H}}}}}{D}}{C{D{E}{E{F{G{H}}}{F{G}}}{E{F}}{E}{E}{E}}{D{E{F}}{E{F}}}{D{E{F}{F}}}{D}}{C{D{E}}}{C{D}}}{B{C}{C}}{B{C}{C}}{B}}"
+    },
+    {
+        "ID": 31,
+        "t1": "{A{B{C{D{E{F{G}}{F}{F{G}}}}{D}{D{E}}{D{E{F{G}{G}{G{H{I}}{H{I{J}}}{H{I{J}}}{H{I}}}{G{H{I}{I}}}}}}}{C{D{E{F}}{E{F}}}{D}{D}{D}{D}{D{E{F}}{E}{E}{E}}{D}{D}}{C{D{E{F}{F}}{E{F{G}}{F}}{E}}{D{E{F}{F{G}}{F}}{E{F{G}}}}{D}}{C}{C{D{E{F{G}}{F{G{H}}}{F{G}{G}}}{E}}{D{E{F}{F}}{E}}{D{E}}{D}{D}{D}}{C{D}}{C}}{B{C}}{B}}",
+        "t2": "{A{B{C{D{E{F}}{E{F{G{H}}}{F}{F{G}}}{E}}{D{E}{E{F}}}{D{E{F{G{H}}{G}}{F{G}{G}}{F{G{H{I}}{H{I}}}{G{H}}}{F}{F}{F{G{H}}}}{E{F{G{H}}}{F}}{E{F{G}}}{E}{E{F}}}{D{E{F{G}}}{E}{E{F}}}{D}}{C}{C}}{B{C{D{E{F{G{H}}}}}{D{E}}}{C}{C}}{B{C{D}{D}}}{B{C{D{E}}}{C{D}}}{B{C{D{E{F}}}{D}{D}}{C{D{E}}}{C}{C}{C}}{B{C{D}}}{B}{B}}"
+    },
+    {
+        "ID": 32,
+        "t1": "{A{B{C{D{E}{E}}{D{E{F{G}{G{H}}{G}}{F}}{E}{E{F}{F{G}{G}}}{E{F}{F}}{E}{E{F{G{H}{H}}{G}}}{E{F}{F}}}{D{E}{E{F}}{E}}{D{E{F{G{H}}{G{H}}}{F{G{H}{H}}}{F}}{E{F{G}}}}{D{E{F}}}{D}}{C{D{E{F}{F{G{H{I}}}}{F}{F{G}}{F{G{H}}{G}{G}}{F}}{E{F}}}{D{E{F{G{H{I}}}}}}{D}{D}{D{E}}{D}{D}}}{B{C{D{E{F{G}}{F}}{E{F}{F}}{E}}}{C}}}",
+        "t2": "{A{B{C{D}}{C{D{E{F{G}{G}}{F{G}{G}}}}{D{E{F{G{H}}}{F}}{E{F}{F}}}{D{E{F{G}}{F}}}{D{E}{E}}{D}{D{E{F}}}{D}}{C{D{E{F}}}}{C{D{E}}{D}}}{B{C{D}{D}}{C{D{E{F{G}{G}}}{E{F{G{H}}{G}{G}}}{E{F{G}}{F}}{E}{E}}{D{E}{E}{E{F}}{E}}{D{E{F{G}{G}{G}}{F{G{H}}{G}}{F}{F}}{E}}{D{E}}}}{B{C}}{B{C{D}}{C{D}}{C}{C}{C{D{E{F}}}}}{B}}"
+    },
+    {
+        "ID": 33,
+        "t1": "{A{B{C{D{E{F}{F{G}}}{E{F}}{E}}{D}}{C}{C}{C}}{B{C{D{E{F{G{H}}{G}}{F}}{E{F{G}{G}}{F{G{H}{H}}}{F{G}}{F}}}{D{E{F{G}}{F}}{E{F}}}{D{E{F}{F{G}}{F}{F}}{E{F}}}{D{E{F{G{H{I{J}}}}}{F{G}}}}{D{E}{E{F}{F}}{E}}{D{E}}}{C{D{E{F}}}{D}}{C{D}{D{E}}}{C{D{E}}}}{B{C{D{E}{E{F}}}{D}}{C}{C}}{B{C{D{E}{E}}}}{B}{B{C}}{B{C{D}}}}",
+        "t2": "{A{B{C{D{E{F{G}}{F{G{H}{H}}{G}{G}}{F{G{H{I}{I}{I}}{H{I}}{H{I{J}}}{H}}{G}{G}{G}}{F}{F}}{E{F{G}{G}}{F{G}}}{E}}{D{E{F{G}{G{H}}}{F}}}{D{E{F}}{E}{E}{E{F}{F}{F}}}}{C{D{E{F{G{H}{H}}{G}}{F}}}{D{E{F{G}}}{E{F}}{E}}}{C{D{E}}{D{E{F}}{E}}{D}{D}}{C{D{E}{E{F}}}{D{E{F{G}{G}}{F{G}}{F}}}{D{E}}{D{E}}{D}}{C{D{E}}}{C}}}"
+    },
+    {
+        "ID": 34,
+        "t1": "{A{B{C{D{E{F{G{H}{H}}}{F{G{H}{H}}}{F}{F}{F{G}}}}{D}{D}{D}{D}}{C}{C}}{B{C{D{E{F}}{E{F}{F{G}}{F}{F}}{E{F{G{H{I}{I}}}{G{H{I}}}{G}{G}}{F{G{H}}{G{H}}{G{H}}}}{E{F}}}{D{E{F}}{E{F}}}{D{E}}{D{E}{E}}{D{E}}}{C{D{E{F}}}}{C{D{E}}{D{E}}}{C{D}{D{E}}{D{E}}}{C{D}}}{B{C}{C{D{E}}}{C}}{B}{B{C}}{B}{B{C}{C}{C}{C}}{B{C}}}",
+        "t2": "{A{B{C{D{E}}{D{E{F{G}}}}{D{E}}{D}}{C{D{E}}{D{E{F}}{E{F}{F}}{E}{E{F}}}{D{E{F{G{H}}}{F}{F{G}}}{E{F{G{H}{H}}{G}{G}{G{H}}}{F}}{E}}{D}}{C{D{E{F{G}{G}{G{H{I}}}}}{E{F{G}{G}}}{E}}{D{E}{E}}{D{E}{E{F}}}{D{E}}}{C{D{E{F}{F}{F{G{H}}}}}}}{B{C{D{E{F}}{E{F{G{H}}{G}}}{E{F{G}}}{E{F}}}{D{E}}}{C}{C}}{B{C{D}}}{B}{B{C}}}"
+    },
+    {
+        "ID": 35,
+        "t1": "{A{B{C{D{E{F}{F}}{E}}}{C{D{E}{E}}{D{E{F{G}}{F}}{E}}{D}}{C{D{E}}{D{E}}{D}}{C}{C{D{E}{E}}}{C{D{E}}}{C}}{B{C{D{E{F}}}{D{E{F}{F}{F}}{E{F}}{E{F}{F}}{E}}{D}{D{E{F}{F}}}}{C}{C{D{E}}}{C}{C}}{B{C}{C{D}}}{B{C{D{E{F}{F{G}{G}}}}}{C{D{E{F}{F}}{E}{E}}{D{E}}{D{E}{E}{E{F}}{E}}{D}{D}{D}}{C{D}{D{E}}}{C{D{E}{E}}}}{B}}",
+        "t2": "{A{B{C{D}{D{E{F{G}}}}}{C{D{E}}{D}{D{E}}{D}{D{E}}}{C{D{E}{E{F{G{H}{H}}{G}}{F{G{H{I{J}}}}{G}{G}}}{E}{E}{E{F}}}{D{E{F{G{H{I}}{H}{H{I}}}}{F}{F}}{E{F}{F}}}{D}}{C{D}}{C{D{E{F{G}}{F}{F}}{E}{E}{E}}{D{E{F}{F}}}}{C{D{E{F}}{E{F{G}}{F}}}}{C}{C{D}}}{B}{B}{B{C{D{E{F}{F}}{E{F}}}{D{E{F}{F}}}}{C{D{E}}{D}}}{B{C{D}}}}"
+    },
+    {
+        "ID": 36,
+        "t1": "{A{B{C{D{E{F{G{H{I{J}}{I{J}}}{H}{H}}{G}{G}}{F{G{H}}{G}{G}{G}}{F}{F}}}{D{E{F}{F{G}}{F}}{E{F}}{E{F}}{E}}}{C{D{E{F}}{E}}}{C{D{E}}}{C}}{B{C{D}{D}}{C{D{E{F}}{E{F}}}{D{E}}{D}{D}}{C{D}}}{B{C{D{E}{E{F}}}{D{E}{E{F{G{H}}{G{H}}}{F}}{E}}{D}}{C{D{E}{E{F}}{E}}}{C{D{E}{E}}{D{E}{E{F}}{E}}}{C}}{B{C}{C{D}}}{B{C}}{B}}",
+        "t2": "{A{B{C{D}{D}}{C{D}}}{B{C{D{E{F{G}{G{H}}}{F}{F{G}}}{E{F{G}{G}{G}}{F}}}}{C{D}{D{E{F}}{E{F{G}}{F}{F{G}}{F}{F}}}{D{E{F}{F{G{H}}}}{E{F{G}{G}}{F}{F}}{E{F}}{E{F}}}}{C{D{E}}}}{B{C{D{E{F}{F}}{E{F{G}{G}{G}{G}}{F}}}{D{E{F}}{E{F}}}{D{E{F{G{H}}{G}}{F}}}}{C{D{E{F}}}{D}{D}{D{E}}}{C}}{B{C}}{B{C{D{E{F}}{E}}}}{B}{B}}"
+    },
+    {
+        "ID": 37,
+        "t1": "{A{B{C{D{E{F}}{E{F}}}{D{E}{E}}{D{E}}}{C{D{E{F{G{H}}{G{H}}{G}}}{E{F{G{H}}}{F}}{E}{E}}{D}{D}{D{E}}}}{B{C{D{E{F{G}{G{H}}}{F{G}}}}{D}{D}{D{E}}{D}}{C{D{E{F{G}}{F}{F}{F}}}{D}{D}}{C{D}{D}}}{B{C{D}}{C{D{E{F}}}{D{E}{E}{E}}{D}{D}}{C}{C}{C}}{B{C}}{B{C}{C{D{E}{E}{E}}{D}{D}{D}}{C}}{B{C{D}}{C{D{E}}{D}}{C}}{B}{B}}",
+        "t2": "{A{B{C{D{E}{E{F}}}{D}{D{E}}}{C{D{E{F{G{H{I}}{H}{H}}{G}{G{H}{H}}}{F}}}}{C{D{E}{E{F{G}}}}}{C}}{B{C{D{E{F}}{E}{E{F}}{E}}{D{E}{E{F{G}}}{E}{E{F}{F}}{E}{E{F{G}{G}{G{H}}}{F}}}{D{E{F}{F}}{E{F}{F}}{E}}}{C{D}}{C}{C}}{B{C{D{E}{E{F}}}{D}}{C{D}{D}{D{E}{E}}{D}}{C{D{E{F{G}}{F{G}}{F{G}}{F}{F{G}}}{E}{E}{E}}{D}{D}}}}"
+    },
+    {
+        "ID": 38,
+        "t1": "{A{B{C{D{E}}}{C{D{E{F{G{H{I{J}}}}{G{H}}{G}}{F{G{H}}{G}}}{E}{E}{E{F{G{H{I}}{H{I}}{H}}}{F{G}}{F{G}}{F{G}}}{E{F{G{H}}}}{E{F{G}}}}}{C{D{E}{E{F}}}{D{E}}{D{E}}}{C{D{E{F{G{H}{H}}{G}}{F{G}{G}}{F}{F}}{E}{E{F}}{E{F{G}}{F}}}{D{E}}}{C}{C}{C}}{B{C}{C{D{E{F}}{E{F}}}{D{E}{E}}{D{E{F}}}{D}}{C}{C{D}}{C}}{B{C}}{B{C}}}",
+        "t2": "{A{B{C{D{E{F}}{E}}{D}{D{E{F}}{E{F{G{H{I}}{H}}{G}{G}{G{H}}{G}}{F{G{H}{H}{H{I}}}}{F{G}}{F}{F{G}}{F}}{E{F{G{H}{H}}{G}}{F{G}{G}}{F}}{E}{E{F}{F}}}{D{E}{E{F{G}{G}}{F{G}}{F{G}}{F}}{E{F}}{E}{E}}{D}{D}}{C}{C{D{E{F}}{E{F{G}}}}}{C}}{B{C{D}{D}}{C{D{E{F}}}}}{B{C{D}{D{E}{E}}}{C{D}{D}{D}}{C{D{E}}{D{E}}}{C}}{B}{B}}"
+    },
+    {
+        "ID": 39,
+        "t1": "{A{B{C{D{E{F{G}{G{H{I}}}}{F{G{H{I}}{H}}}{F{G}}{F{G}}{F{G}}{F}}{E}{E{F{G{H}}}}{E}{E}}{D{E{F}}{E{F{G{H{I}}}{G{H}}{G{H{I}}}}{F{G}}{F}{F}}{E{F{G}{G}}{F}{F}}{E{F}{F}{F{G}}}{E{F}}{E{F{G}}{F{G}{G}}}}}{C{D}{D{E{F}{F}}{E{F}}{E}}{D}{D{E}{E}}{D{E}}{D}}}{B{C}{C{D{E{F}}{E{F}}}{D}}{C{D}}{C{D}{D}}}{B{C{D}}{C{D}}}}",
+        "t2": "{A{B{C}{C{D{E{F}}{E{F}}{E}}{D{E{F}{F{G}}{F}{F}}{E}{E{F}{F{G}}{F{G}}}{E{F}}{E{F}}}}{C{D}}{C{D{E{F}}{E{F}{F{G}}}}{D{E}}{D}{D}}{C{D{E{F}{F}{F}}}{D}{D{E{F}}}{D}}{C{D{E}{E}}{D{E{F{G{H}}{G}}}}}{C}}{B{C{D{E{F{G{H}}}}{E{F}}{E}{E{F}}{E}}}{C}{C{D}}{C}}{B{C{D{E{F}}{E}}{D{E}}}{C}}{B}{B{C{D{E}{E}{E}}}{C}{C{D}}}}"
+    },
+    {
+        "ID": 40,
+        "t1": "{A{B{C{D{E}}{D}}{C{D}{D{E{F{G}{G}}}{E{F}}{E{F}}}{D{E{F{G{H}}{G}}{F}{F}}}{D}}{C}{C}}{B{C{D}{D{E}}}{C{D{E{F{G{H}}{G}}{F}}{E{F}{F{G}{G}}{F{G}}}{E{F}}}{D{E{F}{F{G}{G{H{I}{I}}}}{F}}}{D{E}}{D{E}{E{F}}{E}}{D{E}{E{F}}{E}{E}}{D}{D}}{C{D{E}{E}}{D{E}{E}}{D{E}}}{C{D}{D{E}}{D}}{C{D}{D}}{C{D}{D{E}}}}{B}{B}{B{C}}}",
+        "t2": "{A{B{C{D{E{F{G}}}{E}}{D{E{F{G}}}}}{C{D{E{F}}{E{F}}{E{F}{F}}}{D{E{F{G{H{I{J{K}}{J}}}{H{I}}{H}{H}}}{F{G{H}}{G{H{I}{I}{I}}}{G{H{I{J}}{I}}{H}{H}{H}{H{I}}}{G}}{F{G{H}}{G{H}{H}}{G}}{F{G}}{F}}{E}{E}}{D{E{F}}{E}}{D{E}{E}{E}}{D{E{F}}{E}}}{C{D{E}{E}}{D}{D}}{C}{C}{C{D{E}{E}}{D}}{C{D}}}{B{C{D}}{C{D}}{C}}{B}{B}}"
+    },
+    {
+        "ID": 41,
+        "t1": "{A{B{C{D{E{F}}{E{F}{F}}}{D}{D{E{F}}{E}}}{C{D{E{F{G}{G{H}}{G{H}{H}}}{F}{F}}{E{F}}{E}{E}{E}}{D{E{F{G{H}}}{F{G{H{I}}}{G{H}{H{I{J}{J}}}}{G}}{F{G{H}}{G{H{I{J}{J}}{I}}{H}}{G}{G}}{F{G}}{F}{F}}{E{F}{F}{F}}}{D}{D{E{F}}}{D{E}}{D}}{C{D}{D{E}}}}{B{C}{C{D{E}{E{F{G{H{I}}}{G}}{F}{F}}}{D{E}}{D}}{C{D}}}{B{C{D}}}{B}}",
+        "t2": "{A{B{C{D{E{F{G{H{I}{I{J}}{I}}}}{F{G{H{I}}}}{F}{F{G}}}{E{F{G}}}{E}}{D{E{F}{F}}{E{F}}{E}}}{C{D}{D}{D}}{C{D{E{F}}}{D{E{F{G}{G}{G}}{F}}{E{F{G{H}}{G{H}}{G}}{F}}}{D}{D}{D}}{C{D{E}}{D{E{F}}{E}}{D{E}}}{C{D}{D}}}{B{C{D{E{F}}}{D}}{C{D{E}}{D}{D}}{C{D}}{C{D}}{C{D}}}{B{C{D}}{C}{C{D}{D{E}}{D}}{C}{C}}{B{C}{C}}{B}}"
+    },
+    {
+        "ID": 42,
+        "t1": "{A{B{C{D{E{F}{F{G}{G}{G}}{F}{F{G{H}}}{F{G}}}{E}{E}{E}}}{C{D{E{F}}{E{F{G}}{F}}{E}}{D}{D}{D}}{C}}{B{C{D}}{C{D{E{F{G}}{F}{F}}{E{F}{F}}{E}{E}}{D{E{F{G}}{F}}}}{C{D}}{C{D}{D{E}}}{C{D{E{F}{F{G{H{I}}}}}}{D{E}}}{C{D{E{F{G{H}{H}}}{F{G{H}}{G}}{F}{F}}{E}{E}}{D{E}{E}{E}{E{F}}}{D}{D{E}}}{C}{C}}{B{C{D{E}}}{C}}{B}}",
+        "t2": "{A{B{C{D{E{F{G}}}{E{F}{F{G}}}}{D{E{F{G}{G}}}{E{F}}{E{F}}{E}{E{F{G}}}}{D}}{C}{C{D{E{F}{F{G{H}}}{F{G{H}}{G}}{F{G}}}}{D{E}{E{F}}}}{C{D{E{F{G}{G}}}{E}}{D}{D{E{F}}}{D{E}{E}{E}}{D}}{C{D}}{C{D{E{F{G{H}}{G{H}{H{I}}}{G}}{F{G}}{F}}{E{F}}}{D}}{C{D}}{C}}{B{C{D{E{F}{F}}}{D}}}{B{C}{C{D{E}{E}}{D{E}{E{F}}}{D}}{C}}}"
+    },
+    {
+        "ID": 43,
+        "t1": "{A{B{C{D{E{F{G}}{F}}{E{F{G}}{F{G{H{I}}}{G{H{I}{I}}}}}{E{F{G}}{F}{F}{F{G}}}{E}}{D{E{F{G{H}}{G{H}}}{F}{F{G{H{I{J}}}{H}}{G{H}}{G{H}}{G}}{F{G}}}{E{F{G{H{I{J}}{I}}{H}}{G{H}}{G}}{F{G{H}}}{F}}{E{F{G{H}}{G}}}{E{F{G}}}}}{C{D}{D}{D{E}{E}}}{C}{C{D{E}}}}{B{C{D{E}}{D{E{F}}}}{C{D}}{C}}{B{C{D}{D{E}{E}}{D}}{C}}{B}}",
+        "t2": "{A{B{C{D{E}}{D{E}}{D}}{C{D{E{F{G{H}}{G{H}{H}{H}}{G}}{F}}}}{C{D{E}}{D{E}}{D{E}}}}{B{C{D{E}}}{C{D{E{F{G{H{I{J}}}{H}{H}}}}{E{F}{F}}{E}}{D{E}{E{F{G}{G}}{F{G}}}}{D{E}{E}}}{C{D}{D}{D{E}{E{F}}{E{F}}{E}{E}}{D{E}}{D{E{F{G{H}}}{F}}}{D}}{C}{C}{C}}{B{C}{C{D}}{C{D{E{F}}}{D}}{C{D{E}{E{F}}}{D{E}}}{C}{C{D}}}{B{C}}}"
+    },
+    {
+        "ID": 44,
+        "t1": "{A{B{C{D{E{F}{F}}{E{F{G}}{F{G}{G}}{F}{F}}}{D{E{F{G{H{I{J}}{I}{I}}}{G}}{F}}{E{F}{F}{F{G{H}{H}}}{F}{F}}{E{F}{F}}{E}}{D{E{F{G{H{I}}{H{I}}{H}}}}{E}{E{F{G}}}{E{F}}{E}}{D{E{F{G}{G}}{F}}{E{F}{F{G}}}}{D{E{F}}}{D{E{F{G}}{F{G}}}{E{F{G{H}}{G}}{F}}{E}}{D{E{F}}}{D{E{F}}{E}}{D{E}}{D}}{C{D}{D{E}{E}}}}{B{C}}{B}{B}}",
+        "t2": "{A{B{C{D{E}}{D{E}}{D}{D}}{C{D{E}}{D}}{C}{C}}{B{C{D{E{F}{F}{F{G}}}{E{F{G}}{F}}{E}}{D{E{F}{F}}}{D}}{C{D{E}}}{C{D{E{F}}{E}}}{C{D{E}{E}}}{C}}{B{C{D{E{F{G{H{I}}}{G}{G{H}}{G}{G{H}}}{F{G{H}}{G}}{F}}{E{F}}{E}}{D}}{C{D{E{F{G}}}{E{F{G}}}{E{F}{F}}{E}{E{F}}}}{C}}{B{C{D{E{F}{F}}}{D{E{F}}}{D{E}}{D}}{C{D{E}}}{C}}}"
+    },
+    {
+        "ID": 45,
+        "t1": "{A{B{C{D{E{F}{F{G}}}{E}}{D{E}}{D{E}}{D{E{F}}}{D}}{C{D{E}}{D}}{C{D{E}{E}}{D{E}}{D}}{C{D{E}}}}{B{C{D{E{F{G}}}{E}{E}{E{F}}{E}{E}}{D{E{F{G}{G}}}{E}{E}}{D{E}}}{C{D}}{C}}{B{C{D{E{F{G}}{F}}{E}}{D{E{F}}}{D}}{C{D{E{F}}{E}{E{F}}}}}{B{C}{C{D{E}{E}}{D}}{C{D{E}{E{F{G}}{F}}{E{F{G}}}}{D}{D}}}{B{C}{C}}{B{C{D}{D}}}}",
+        "t2": "{A{B{C{D}}}{B{C{D{E{F}{F{G}{G}}}{E}{E}}{D{E}{E}}{D{E{F}}{E{F{G{H}}{G}}{F}}{E}}}{C{D{E}{E}}}{C}}{B{C{D{E{F}}{E}}{D{E}}{D{E}}{D{E{F}}{E}}}{C}}{B{C{D{E{F{G}}{F{G}}{F}}{E{F{G{H}}}}}{D}}{C{D{E}}{D{E{F{G{H{I{J}}}{H}}{G{H{I}}}{G{H}}}}{E{F}}{E}}{D{E}{E}}}{C{D}{D{E}}}{C{D{E{F}}}{D}}{C{D}{D}}{C}}{B{C}}{B{C}}}"
+    },
+    {
+        "ID": 46,
+        "t1": "{A{B{C{D{E}}{D}}}{B{C{D{E}}{D{E{F{G{H{I}}{H}}{G}{G}}{F}{F{G{H{I}}}{G{H{I}}}}{F{G}}{F{G{H}}}}{E{F{G{H}}}{F{G{H}{H}}{G}}}{E{F{G}{G}}{F}{F}}}{D{E}}{D{E}}{D{E}{E{F}}}{D}}{C}{C}{C{D}}}{B{C{D{E}{E}}{D{E{F{G}}}{E}{E}{E{F}}}{D{E{F{G}}}{E}{E{F}}}}{C{D{E}{E{F{G}{G{H{I}}}}}}{D{E}}}{C}}{B{C}{C{D}{D}}{C}}{B{C}}}",
+        "t2": "{A{B{C{D{E}}{D}{D{E}}}{C{D{E{F{G{H{I}{I}}}{G}}{F{G{H{I}}{H{I{J}}}{H{I{J}}{I}}{H{I{J}}{I}}{H{I}{I{J{K}}}}}}{F{G{H{I}}{H{I{J{K}}}{I}}{H{I}}}{G}}{F{G{H{I}{I}{I}}}}}}{D{E}{E}{E}}{D{E}}{D{E{F{G{H{I}}{H}}{G}}{F}}{E}{E{F{G}}{F}}}}{C{D{E{F{G{H}{H}{H}}}}}{D}{D{E{F{G}}}{E}}}{C}{C{D{E}}}{C{D}}}{B{C{D{E}}{D}}}}"
+    },
+    {
+        "ID": 47,
+        "t1": "{A{B{C{D{E}{E}}{D{E{F}}}{D}{D}}{C{D{E}{E{F}{F}{F{G{H}}}}{E{F}}}{D{E{F}}{E}}}}{B{C{D}{D{E{F}}{E}{E}}}{C{D{E{F}{F}}{E}}{D}}}{B{C{D{E{F}}}{D{E{F}}}}{C{D{E{F{G}{G}}}{E{F}}{E}}{D}}{C{D{E}}}}{B{C{D{E{F}}{E}{E}}{D}{D{E{F}}}}{C{D{E}{E}{E}}{D}}}{B{C{D{E}{E{F{G{H}}}{F}}}{D{E}{E}}}}{B}{B{C}{C}}{B{C}}{B}{B{C}}}",
+        "t2": "{A{B{C{D{E{F{G{H{I{J}{J{K}}}}{H}}{G{H}}}{F{G{H}}}{F{G{H}}}}{E{F{G}}{F}{F}}{E}}{D{E{F{G{H{I}}{H}}{G{H}{H{I}}}{G}}{F{G{H}{H}}{G}}}{E}}{D}{D{E{F}}{E{F}{F}}{E}}}{C{D{E}}{D{E}{E{F{G}}}{E}}{D{E{F}{F{G}}{F}}}{D{E{F}{F}{F}}}{D}}{C{D{E}}}{C}}{B{C{D{E{F{G{H{I}}{H}{H}}}}}{D{E{F}{F{G{H}}}}{E}}}}{B{C}{C}}{B{C}}}"
+    },
+    {
+        "ID": 48,
+        "t1": "{A{B{C{D{E{F}}{E{F}{F{G}}}}{D{E{F{G{H}}{G{H{I}}{H}}{G}}}{E{F}{F}}{E{F{G}}}{E}}{D}}{C{D{E{F{G{H{I{J}}}{H}{H}}}{F{G{H}}}}{E{F{G}}{F}}{E{F}}}{D}{D{E{F{G{H}}{G}{G{H{I{J{K}}}}}}{F{G}{G{H}{H}}}{F{G{H}}}}{E{F{G}}{F}}}{D{E{F}}{E}}{D{E{F}}{E}{E}}{D}{D{E{F}{F}}}{D}{D}}{C{D{E{F}{F}}{E}{E}}}{C}}{B{C}}{B{C}}{B}}",
+        "t2": "{A{B{C{D{E{F{G{H{I}}}{G{H{I{J}}}{H}}{G{H{I{J{K}}{J}}}{H{I}{I}}{H{I}}{H}{H{I}}{H}}{G}{G}}{F{G{H{I}{I}}{H}}{G{H{I}{I{J}}}}{G}}{F{G{H}{H}{H}{H}}{G{H{I}}}{G}{G{H}}{G}}{F{G{H{I}}{H}}{G}}}{E{F}{F{G{H{I}}{H}}}{F{G}}}{E}{E{F{G}}}{E}}{D{E}{E}{E}}}{C{D}{D{E}{E{F{G}}{F}}{E}}}{C{D{E{F}}{E}}{D}}}{B}{B{C{D}}}{B}}"
+    },
+    {
+        "ID": 49,
+        "t1": "{A{B{C{D{E{F}{F}}}{D{E{F{G{H{I{J}}{I}}}{G}{G}}{F{G}}{F}}}{D{E}{E{F}}}{D{E}}{D{E}}}{C{D}{D{E}}{D}{D}{D}}{C}{C{D{E}{E}}}{C}}{B{C{D{E{F{G}}{F{G}{G}}}{E{F{G{H}}{G}}{F{G{H{I}{I}}}{G}}{F}}{E{F{G{H}}{G}{G}}}{E{F}}{E{F}}{E}}{D{E}{E{F}}}}{C{D{E{F{G}}}{E{F}}}{D{E}}}{C}{C{D}}{C}{C}}{B}{B{C{D}{D}}{C{D{E}}}}{B}}",
+        "t2": "{A{B{C{D{E{F{G{H{I{J}}{I}}{H{I}{I}}{H}}{G{H{I{J}}}{H}}}{F}{F}{F}}{E}{E}}{D{E{F{G{H{I}}{H}}{G}{G{H}{H}}}{F}}{E{F{G{H}}}{F}{F{G{H}}}{F}}{E{F{G{H{I}{I}}}{G}{G}}{F}}}{D}{D{E{F}}{E{F{G{H}}}{F{G}}}}{D}}{C{D{E{F{G}{G}}}{E{F}{F{G}{G}}}}{D}}{C}}{B{C{D{E}}}{C{D}{D{E}}}{C}}{B{C{D{E{F}}}{D{E}}{D}{D}}}{B}{B{C}}}"
+    },
+    {
+        "ID": 50,
+        "t1": "{A{B{C}{C}{C{D}}}{B{C{D{E{F{G}}{F{G}}{F{G}{G{H}}}}{E{F{G{H{I}}{H{I{J}}}{H{I}}}{G{H{I}}{H{I}}{H}}{G}}{F{G{H{I{J}}{I}}{H}}{G{H{I}{I{J}}}}}{F}{F}}{E{F{G}{G}}{F}{F}}{E{F{G}}{F}}{E}}}{C{D}{D}}{C{D{E{F}}{E{F{G}}}{E}}{D{E{F{G{H}}}}}}{C{D}{D}{D}}{C{D}{D}}{C}}{B}{B{C{D}}}{B{C{D}}{C}}{B{C}{C}}{B{C}}{B{C}}{B}}",
+        "t2": "{A{B{C{D{E{F}}}{D{E{F{G{H{I}{I}}}{G}}}{E{F{G{H{I{J}}}}{G{H}}}{F}{F{G}}}{E{F}{F{G}}{F}}{E{F}}{E}}{D}}{C{D}}{C{D{E}{E}{E}}{D{E}}}{C{D{E}{E}}{D{E}}{D}{D}}{C{D{E}}}}{B{C{D}}{C{D{E}{E}}}{C{D}}}{B{C{D}}{C{D{E}{E}}{D}{D{E}}{D}{D{E{F}}}}{C{D{E{F}{F}}{E}}{D}}{C}}{B{C{D{E{F}}}{D{E}}}{C{D{E}{E}}{D}}{C}{C{D}}}}"
+    },
+    {
+        "ID": 51,
+        "t1": "{A{B{C{D{E}}{D{E{F}{F}}}{D{E}}{D}}{C{D{E{F{G}}{F}}{E}{E{F}}{E}}{D}}{C{D{E}{E}}}{C{D{E}}}}{B{C{D{E{F}{F}}}}{C{D}{D}}}{B{C{D{E{F}}{E}{E}}{D}}{C{D{E{F}{F}}{E{F{G}{G}}}{E}}{D{E}}{D{E{F}}{E}}{D{E{F}}}}{C{D}}}{B{C{D{E}}{D{E}}{D}}{C{D}}{C{D{E{F}}}{D{E}{E}}{D}}{C{D{E}}{D{E}}}{C{D}}{C}}{B{C}}{B}{B{C}}{B}{B}}",
+        "t2": "{A{B{C{D{E{F{G}}{F{G}}}{E{F}}{E}}{D{E{F}{F{G}{G{H}}}{F{G}{G{H}}}{F}}{E{F{G{H}}}}{E{F}}{E}}{D{E}{E}}{D{E}{E}}}{C{D{E{F{G}}}{E{F{G}{G{H}{H}}}}}{D{E}}}{C{D}}{C{D}}}{B{C{D{E{F{G}}}{E}}{D{E}}}{C{D{E}}{D{E}{E}}{D}}{C{D{E}}}}{B{C}{C{D}}{C{D}}{C{D{E{F}{F}{F}}{E{F{G}}{F{G}{G}}{F}{F{G}}}{E}}{D}}{C}{C}}{B}{B}}"
+    },
+    {
+        "ID": 52,
+        "t1": "{A{B{C{D}{D{E{F}{F}{F}}{E{F}}}}{C{D{E{F{G{H{I}}}}{F}}{E{F{G{H}}{G}}{F}}{E{F}{F{G}}{F}{F}}{E}{E}}{D{E{F{G{H}}}{F{G{H{I{J{K}}}}{H}}{G{H{I}{I}{I}}}{G}{G{H{I{J}}{I}}{H{I}}}}{F{G{H{I}}{H}{H}{H}{H}}}{F}}{E{F{G{H}{H}}{G{H{I}}}{G}{G{H}}}{F{G}}}}{D{E{F{G}}}{E}{E}}{D{E}}{D}}{C{D{E}}{D}}{C}}{B}{B{C{D}{D}}}{B}}",
+        "t2": "{A{B{C{D{E{F}{F}}{E}}}{C{D{E}{E}}{D{E{F}{F}}}{D{E{F}}}{D}}}{B{C{D{E{F{G}}}{E}{E{F{G}{G}}{F}{F}}}{D{E{F{G{H{I}{I}}}{G}}{F}}{E}{E{F}{F{G}}}{E{F}}}{D{E}}{D{E}{E}{E}}{D{E{F{G{H}{H{I{J}{J}}{I}}}}}}}{C{D{E{F{G{H{I}}{H}}{G{H{I}}}{G}}{F{G{H{I}}{H{I}}}{G}}}{E{F{G}}}{E{F}{F}{F}}{E}}{D}}{C{D}}{C}{C}}{B{C}}{B}}"
+    },
+    {
+        "ID": 53,
+        "t1": "{A{B{C{D{E}{E{F{G{H}}}{F}}{E}}{D{E{F{G}{G{H}}{G{H{I}}}{G{H{I}{I}}{H{I}}}{G{H}}{G}}{F{G}}}}{D{E{F{G}}{F}{F}}{E}{E{F}}{E}{E{F}}{E}{E}}{D{E{F{G{H}}}}}{D}{D}{D{E}}}{C{D{E{F}}}{D}{D}}{C{D}{D{E}}{D}{D}}{C{D{E}{E}}}{C}}{B{C{D{E{F{G}}}{E}{E{F{G}{G}}}{E}}{D}}{C{D{E}}{D{E}}{D}}{C{D{E}}{D}}{C{D{E}}{D}}}{B{C}}}",
+        "t2": "{A{B{C{D}{D{E{F}}{E}}{D}}{C{D{E{F}}}}{C}}{B{C{D{E}}{D}{D{E{F}}}}{C{D}{D}{D}}}{B{C{D{E{F}}{E{F}{F{G}}{F}}{E{F{G{H}}{G}{G{H{I{J}}}}{G}{G}}{F}{F{G{H{I}}{H}}}}{E{F}}{E{F{G{H}}}{F}{F}}{E{F}}{E}}{D{E{F{G{H{I}}{H}}{G}{G}}}}}{C{D{E}{E}{E}}{D}}{C}}{B{C{D{E}}{D}}}{B{C{D}}}{B{C{D}}{C{D}}{C}{C}}{B}{B}{B{C}}{B}}"
+    },
+    {
+        "ID": 54,
+        "t1": "{A{B{C{D{E{F{G}}{F}}{E}}{D}{D}{D}{D}}{C{D{E}{E{F{G}}{F}{F{G{H}}{G{H}}}{F{G}{G}}}{E{F{G}}{F}}}{D{E{F{G}}}{E}}{D{E}{E}}{D}{D{E{F}{F}{F}{F}}}{D}{D}{D{E}}{D}}{C}{C{D{E{F}}}{D}{D{E{F}{F}}}{D{E}}{D}}{C{D}}{C}}{B{C{D{E{F}{F}{F}}{E{F{G}}{F{G{H}}{G{H}}}{F{G{H}}}{F{G}}}{E}{E}}{D}{D}}{C{D{E}}}{C}{C}}{B{C}}{B}}",
+        "t2": "{A{B{C{D{E{F{G}}{F}}{E{F{G}}{F{G{H}}}{F{G}{G}}{F}{F}}}{D}}{C}}{B{C}{C{D}}{C}{C}{C}}{B{C{D}{D{E{F}}}}{C{D{E{F{G{H}}{G}}{F}{F}}{E}{E}}{D{E}}{D}}{C{D{E{F{G{H}}}{F}{F}}{E}{E{F{G}}{F{G}}{F{G}}}{E}}}{C{D}}}{B{C{D}{D{E}}{D}{D}}{C{D{E{F}}{E}}{D}}{C}}{B{C{D{E{F{G{H{I{J}}}{H{I{J{K}}}}}}}{E}{E}}}{C}}{B{C{D}}}}"
+    },
+    {
+        "ID": 55,
+        "t1": "{A{B{C{D}{D{E{F{G}{G}}}}{D}{D{E{F}}}}{C{D{E}}{D}}{C}{C}}{B{C{D{E{F}}{E}}{D{E{F}}}{D{E{F{G}}}{E}{E{F{G}}}}}{C{D{E{F{G}}{F{G{H}}{G}}}}}{C{D{E}}{D}}{C{D{E{F}}{E{F}}{E{F{G}}}{E}}{D}{D{E}}}{C{D{E}}{D{E}}}{C{D}}{C{D}}{C{D}}{C}}{B{C{D{E}}{D{E}}{D}}}{B{C{D{E}}}{C{D{E{F}}{E}{E}}}{C{D}{D}{D{E}}{D}}}{B{C}}{B}}",
+        "t2": "{A{B{C{D{E{F}{F}}{E{F}}{E}}{D{E{F}}{E}}{D{E{F}}{E}}{D{E}{E}}}{C{D{E{F{G}}{F}{F{G{H}}}{F}{F}}{E{F{G{H}{H{I}}}{G{H}}{G}}}{E}}{D{E{F}{F}{F}}{E{F{G{H}{H}}}{F}}{E{F{G{H}}}}}{D}{D}}{C{D{E}}}{C}{C}}{B{C}{C{D}}{C}{C{D}}}{B{C}{C}{C}}{B{C{D{E{F{G{H{I}}{H}}{G}}{F}{F{G}}{F}}{E{F}{F}}}{D}}{C{D}{D}}{C{D{E}}}{C}}}"
+    },
+    {
+        "ID": 56,
+        "t1": "{A{B{C}{C{D{E{F}{F{G{H}}}{F{G}}{F}{F{G}}}{E{F}{F}}{E{F}}{E}}{D{E}{E}}{D{E}}{D}}{C{D{E{F}}{E}}{D}{D}}{C{D{E}}}}{B{C{D{E}{E{F{G{H}}}{F}{F{G}}}{E{F}}{E}{E{F{G}}}{E}}{D{E{F{G{H}}}}{E{F}}{E{F{G}}{F}{F{G}}}{E}{E}{E}}{D}}{C{D{E}}{D{E}}{D{E}}}{C}}{B{C{D{E{F{G{H{I}{I}{I}{I}}{H}}{G}{G}{G}}}}}}{B}{B{C{D}}}{B}}",
+        "t2": "{A{B{C{D{E{F{G{H}}}}{E}{E{F}}}{D{E{F}}}{D}}{C{D}{D{E}}}}{B{C{D{E{F{G{H}{H}}{G}{G}}{F}{F}}{E{F}}}{D{E{F{G{H{I{J}}}{H}}{G{H}}{G}{G}}{F{G}}}}{D}{D{E{F{G}}}}{D{E{F{G{H{I}}}}{F}}}}{C{D}}{C{D}{D}}{C}}{B{C{D{E{F{G{H}}}}}{D{E{F}}{E{F{G}}{F}}}{D}{D{E{F}}{E}}}{C}{C}}{B{C{D}}{C{D}{D{E}}{D{E}}}}{B{C}{C}}{B}{B}}"
+    },
+    {
+        "ID": 57,
+        "t1": "{A{B{C{D{E{F}{F}{F}}{E}}{D}}{C{D{E}}{D{E}{E}{E}}{D}}}{B{C{D}}{C{D{E}}{D}}}{B{C{D}{D}{D}}{C{D}{D{E}}}{C{D{E{F}}{E{F}}}{D{E}}}{C{D}{D{E}}{D}{D{E}}}{C{D{E{F{G{H}}}}}}}{B{C{D}{D}}{C{D{E}{E{F{G}}}}{D{E}}}{C}{C}{C}{C}}{B{C{D{E{F}{F}}{E{F{G}}{F{G}}}}}{C{D{E{F{G}}}{E}}{D{E}}}{C{D{E}}{D}{D}}{C{D}}}{B{C}}{B}}",
+        "t2": "{A{B{C{D}{D{E{F}}}{D}}{C{D{E{F}}}}{C{D{E}}{D}}{C}}{B{C{D{E{F}}}{D}{D{E{F{G}}{F}}{E{F{G}}{F}{F}}{E{F{G{H}}{G}{G{H}{H}}}{F{G}}{F}{F}{F{G{H}{H}}}{F}{F{G}}}}{D{E{F{G{H}}}{F{G}}}}{D{E{F}}}{D{E}}}{C{D}}{C{D}}{C{D{E{F}{F}}}}{C{D{E{F}}}{D}{D}}{C}}{B{C{D{E}{E}}{D{E}}{D}{D{E}}}{C}}{B}{B{C{D}{D{E{F}}}}{C}}{B}}"
+    },
+    {
+        "ID": 58,
+        "t1": "{A{B{C{D}{D}}{C{D{E{F{G{H{I{J}{J}}}}{G}{G}}{F}}}{D{E{F}}{E{F}}{E}{E}}{D{E}{E{F}}}}{C{D{E}{E}}{D}}{C{D}}{C{D}}}{B{C{D}}}{B{C{D{E}}{D{E{F{G}{G}{G}{G}{G}}{F{G{H}{H}}{G{H}}}}}{D}{D}}{C{D{E{F{G}}{F}{F}}{E}{E}}{D{E{F}{F{G}}}{E}{E}}{D{E}}}{C{D{E}{E}}}{C}{C{D}}}{B{C{D{E}}{D}}}{B{C{D{E}}}{C}}{B{C{D}{D}{D}}}}",
+        "t2": "{A{B{C{D{E{F{G}{G}}{F{G}}{F}}{E{F{G{H{I{J{K}{K}}{J}}}{H}}}{F{G{H}}}{F{G}{G}}{F}{F{G}}}{E{F}}{E{F{G{H}{H}}}}}{D{E{F{G}{G{H{I{J}}{I}}{H}}}}{E{F}}{E{F}{F}}}{D}{D{E{F{G{H}}}}{E}}{D{E{F{G}{G}}}}}{C{D{E{F}{F{G}}{F{G{H}}}}{E}{E}{E}}{D{E}{E}{E}}{D}}{C{D}}{C}}{B{C}{C{D}{D{E{F}}}{D{E}}}{C{D{E{F}}}}}{B{C{D}}}}"
+    },
+    {
+        "ID": 59,
+        "t1": "{A{B{C{D{E{F}{F}}{E}{E}}{D{E}{E}}{D}{D{E{F}{F}{F}{F}{F}}}}{C{D{E}}{D}{D}{D}{D}}{C{D{E}}{D{E{F}{F{G}}{F}}{E}}{D{E{F}{F}{F{G}}}}{D{E{F}}}{D}{D}}{C{D{E{F{G{H}{H}}{G{H}{H}}}{F{G{H}{H}{H}}}{F{G{H{I}}{H{I}{I}}}{G}{G}}{F}{F}{F}}}}}{B{C}{C}}{B{C{D{E{F}{F{G{H}}{G}}}}{D}}{C}{C}{C}}{B{C}}{B{C}{C}}{B{C}{C}{C}}}",
+        "t2": "{A{B{C{D{E{F{G{H}}{G{H}}}{F}}{E}}{D{E{F{G}}}{E}}{D{E}}}{C{D{E{F}}}{D{E}}{D{E{F{G{H{I}}}}{F{G}{G{H}}}{F{G}}}{E}{E}{E{F}}}{D{E{F{G{H}}}{F}{F}{F}}{E}}{D}{D}}{C{D{E{F{G{H}}}{F}{F{G}}{F}}{E}}{D{E}}{D{E}}{D}}{C}{C}{C{D{E}}}}{B{C{D{E{F{G}}{F}}}{D}}{C{D}{D{E{F}}}{D}{D}}{C{D}}{C{D}{D}}}{B{C{D}}{C}{C}{C}}{B}}"
+    },
+    {
+        "ID": 60,
+        "t1": "{A{B{C{D{E{F}}{E}}{D}{D}{D}{D}}{C}}{B{C{D{E{F}{F}}{E{F}}{E}}{D{E{F{G{H{I}}{H}{H}}{G}}{F{G}}}{E}}{D{E}{E{F}}}}{C{D{E{F}}{E{F}}}}{C}{C{D}{D{E{F}}}{D}}{C{D{E{F{G{H}{H}{H{I}}}{G}}{F}{F}}}}{C}}{B{C{D{E{F}}}{D}{D}}{C{D{E{F{G}}}{E}{E}}}{C{D{E{F}{F{G}}}}{D{E}}}{C{D}{D}{D}}{C}{C}{C}{C}}{B}{B}{B{C}{C}}{B{C}}}",
+        "t2": "{A{B{C{D}{D}}{C{D{E}{E}{E}}{D{E{F}}}{D{E}{E{F{G}}{F{G}}{F}}{E}{E{F}}}{D{E}}{D{E}}}{C{D{E{F}{F}}{E}}{D{E}{E}}{D{E}}{D}}{C{D{E{F{G{H{I}}}}{F{G{H{I{J}{J{K{L}}{K{L}}}{J}}{I{J{K}}{J}}{I{J}}}{H{I}}}{G{H}}}{F{G{H}{H{I}{I}}}{G}}{F}{F{G{H{I}}{H}}}}{E{F}{F}}}{D}}}{B{C{D{E}}{D{E}}{D{E}}}{C{D{E}{E{F}}}{D}{D}}}}"
+    },
+    {
+        "ID": 61,
+        "t1": "{A{B{C{D}{D{E{F{G}{G}{G}}{F{G}{G{H}}}}{E{F}}}{D{E}}{D}}{C{D{E{F}{F}}}{D{E}}}{C{D{E{F}}{E}{E}{E}}}{C}}{B{C{D{E{F{G{H}}{G}}}}{D{E{F{G{H{I}{I{J}{J}}}}{G}{G}{G}{G{H{I}}}}{F{G{H{I{J}{J}}{I}}{H}{H}}{G}}{F{G{H}{H{I}}{H{I}}{H}}}{F}}{E}}{D{E{F}}}{D{E{F{G}}{F}}{E{F}}}{D{E{F{G}}{F}}}}{C{D}}{C}{C}{C}}{B}{B{C}}}",
+        "t2": "{A{B{C{D{E{F{G{H}{H}}}}{E{F{G}}}{E{F}{F{G}{G{H}}}{F{G{H{I}}}}{F}}}}{C{D{E}{E}}{D}{D{E{F{G}{G}}{F{G{H}}}{F{G}}{F{G}{G}}{F{G}}}{E{F}}{E}{E}}{D}{D{E}}}{C}}{B{C{D{E{F{G{H}}}}{E{F{G}}}}{D}}{C}}{B{C}{C{D{E}}{D{E}}}{C{D}{D}}}{B}{B{C{D}{D}{D}}{C}}{B{C}{C}{C}}{B{C{D}{D{E}}}{C{D}}}{B}{B{C{D}}{C}{C}}{B{C}}{B}}"
+    },
+    {
+        "ID": 62,
+        "t1": "{A{B{C{D{E}{E}{E}}{D{E}}{D}}{C{D{E}{E{F}}{E}{E}}}{C{D{E}}{D{E}{E}}{D}}{C{D}}}{B{C{D{E{F{G{H}}{G}}{F}{F{G}}{F}}{E{F{G{H}{H}}{G}}}{E}{E}{E}}{D{E}}}{C{D{E{F}}}{D{E}}{D{E}}{D}}{C{D{E{F}}}{D}{D}}}{B{C{D}{D}}{C{D{E}}{D{E{F}}}{D}}{C{D{E{F}}}{D{E{F{G{H}{H{I{J}}}}}{F{G{H}}{G}}}{E}{E{F}}{E}{E}}{D}}}{B{C}{C}}}",
+        "t2": "{A{B{C{D}{D{E{F}{F}{F}}}{D}{D{E{F}}{E}}{D}}}{B{C{D{E{F}{F}{F}}{E}{E}}{D}}{C{D{E{F{G{H{I}}}{G{H{I{J}}}{H}{H{I}}}{G}{G{H}}{G}}{F{G{H{I{J{K}}}{I{J}}}{H}}}{F}{F}{F}}{E{F{G}}{F}}{E{F}{F}}{E}{E}}{D{E{F{G}}{F{G}}{F}}{E}{E{F}}}{D{E}{E}}{D{E{F}{F}}}{D}{D}}{C{D}{D{E}}{D}{D}}}{B{C{D{E{F}{F}}}{D}}{C}{C{D}}}{B}}"
+    },
+    {
+        "ID": 63,
+        "t1": "{A{B{C{D{E{F}}}{D{E}{E}}{D}}}{B{C{D{E{F{G}}{F}}{E{F}{F}}{E}{E}{E{F}{F{G}}{F}}{E}}{D}{D{E{F{G}}}{E}}{D{E}}}{C{D{E{F{G}{G{H}{H}}{G{H{I}}}{G}}}{E}}{D{E{F{G}}}}{D{E{F}}}{D{E}}}{C{D{E{F{G{H}}{G{H}}}{F{G}}{F{G}}{F}{F}}{E}{E{F}{F{G{H}}}}{E}}}{C}}{B{C{D{E}}{D}}{C}{C}{C{D}}}{B{C{D}{D{E}}}{C{D}}{C{D}}{C}}{B}}",
+        "t2": "{A{B{C{D{E{F{G}}}}{D}{D}{D}{D}{D}}{C{D{E{F}}}{D{E{F}}{E{F{G}}}{E{F}{F{G}}}}}{C{D{E{F{G{H}{H}}{G}{G{H}{H}}{G}{G}}{F{G{H{I}}}}}{E}{E}{E}}{D}{D}{D{E}}}{C{D{E}{E}}{D}{D{E}}{D{E{F{G}{G}}}{E}}}{C}}{B{C{D{E{F}}{E{F{G{H{I{J}}}{H}}}{F}}{E}{E}}{D}{D}{D{E}}{D}}{C{D{E}}{D}}{C}{C{D}}}{B{C{D{E{F{G{H}}}{F}}{E}}}}}"
+    },
+    {
+        "ID": 64,
+        "t1": "{A{B{C{D{E}}{D{E{F}}{E}}}{C{D{E{F{G{H}}}{F{G{H}{H{I}}{H{I}}}{G}{G{H{I{J}}{I}{I}}{H}}}{F{G{H}{H}}}{F}{F{G}}}{E{F{G{H}}{G}{G}}}}{D{E}{E}{E}{E{F}}}{D}{D{E{F{G{H}{H}}{G{H}}{G{H}}}}{E}{E}}{D{E{F{G}}}}{D{E{F}{F}}{E{F{G}{G}}{F{G{H}}{G{H}}}}{E}{E}{E}}}{C{D{E{F{G{H}}}{F{G}}}{E}}{D{E{F}{F{G}}}{E}}{D}{D}}{C}}}",
+        "t2": "{A{B{C{D{E}{E}{E}}{D{E{F}}}}{C}{C{D}}{C}{C{D{E{F{G{H}}{G{H{I}}{H}}}{F}}}{D}}}{B{C{D{E{F{G}}{F{G}}}{E}{E}}{D{E{F{G{H{I}}{H}}{G}{G{H}{H}}}{F}}{E{F}{F}}}{D{E{F{G{H}{H}}}{F{G}}{F}{F}}}{D}}{C{D{E}}{D{E{F{G}}}{E}{E}}}}{B{C{D}}}{B{C}{C{D}}{C{D}}}{B{C}{C{D{E{F{G}}{F{G}}}{E{F}}}}{C{D{E}{E}}}{C{D}}{C}}{B}{B}}"
+    },
+    {
+        "ID": 65,
+        "t1": "{A{B{C{D}}{C{D{E{F}}}{D{E}}{D{E}}}{C{D{E}}}{C}{C}}{B{C{D{E}}{D{E}{E{F}}}{D{E}}{D}}{C{D}}{C{D{E}}{D}}}{B{C{D{E{F{G}}}{E}}{D}}{C{D}{D{E}}}{C{D{E}}{D{E}}}{C{D}{D}}}{B{C}{C{D{E{F}}{E{F}{F}}}}{C{D{E{F{G}}}}{D{E{F{G}}}{E}}}{C{D}{D{E}}{D}}{C{D}{D}}}{B{C{D}{D{E}}}{C}}{B{C}{C}}{B{C{D}{D}}}{B}{B{C{D{E}}}{C}}}",
+        "t2": "{A{B{C{D{E}}{D}{D}{D{E}{E}}}{C{D{E{F{G}}}{E{F}}}{D{E}{E}}}{C{D}}{C{D{E{F}}{E{F{G}{G}{G}}{F}{F}{F}}{E{F}}{E{F{G}}}{E{F}{F}{F{G}}}}{D{E}{E{F}}{E}{E}}{D{E{F}}{E}{E{F}}{E}}{D}}{C}{C}}{B{C{D{E}}{D{E{F}}{E}}{D}}{C{D{E{F}}{E{F{G{H}}}{F}{F{G}}}{E}{E{F}}{E}}{D{E{F}}}{D}}{C}{C}{C{D}}}{B{C{D}}}{B}{B{C{D}}{C}}}"
+    },
+    {
+        "ID": 66,
+        "t1": "{A{B{C{D{E{F}}}{D{E{F{G{H{I{J}}}{H}}{G{H{I{J}}{I{J{K}}{J}}{I}{I{J}}}{H{I}{I}}}}{F{G{H}}{G{H{I}}{H}}{G{H{I{J}}{I}}}}{F{G}}}{E{F}{F{G{H{I{J}}}}}}{E}{E}}{D{E{F{G{H}}}{F}{F}}{E{F{G{H}{H{I}}}{G{H}{H}}{G}{G}}}{E{F{G}{G}}}{E{F}{F}}}{D{E}{E}}{D{E}{E}{E}}{D{E}}}{C{D}{D{E{F}}}{D}{D}}}{B{C{D}}}{B{C}}{B{C{D}}}}",
+        "t2": "{A{B{C{D{E{F}{F}{F}{F}}{E{F{G}{G}}{F{G{H{I{J{K{L}}}{J}{J}{J{K}}}{I}}{H}{H{I}{I}{I}}{H{I}{I}}}{G{H}{H}{H{I}}}}{F{G}}}{E{F}{F{G}}}}{D{E{F}{F}{F}{F{G{H}{H}}}}}{D}}{C{D{E{F}}}{D}{D{E}{E{F{G}}{F{G}}}{E{F}{F}}}}{C}}{B{C{D{E{F{G{H{I}{I}}}}{F}{F}}{E{F{G{H}}}}}}{C{D{E{F}}{E}}}{C}{C{D{E}{E}}}}{B{C{D}}}{B{C}}}"
+    },
+    {
+        "ID": 67,
+        "t1": "{A{B{C{D{E{F{G{H}{H}}{G}{G}}{F}}{E{F}}}{D{E{F}{F}}{E}}{D{E}}{D}{D}{D{E}{E{F}}}{D{E}}{D}}{C{D{E{F{G}}}{E{F}}}{D{E}}{D}{D}}{C{D{E{F{G}{G}{G{H}}}{F}}{E{F{G}}}}{D{E{F}}{E{F}}{E}{E}}{D}}{C}{C{D{E{F{G}}{F}{F}}}{D}}{C}}{B{C{D{E}{E{F}}{E}}}{C}}{B{C{D{E}}}{C{D}}{C}{C}}{B{C{D}{D}}{C}}{B{C{D{E{F}{F}}{E}}}}{B}}",
+        "t2": "{A{B{C{D{E{F{G{H}}}{F}}{E}}{D}}{C{D{E}}{D}}{C{D}}{C{D{E}}{D}{D}}{C{D}}}{B{C}{C}{C}{C}}{B{C{D{E}{E}{E}}{D{E}}{D{E{F}{F}}{E}}{D{E}}}{C{D{E{F{G}}}{E}}{D}}{C{D{E}}{D}}}{B{C{D{E{F{G}{G{H}{H}}{G}}}{E}}{D}{D{E{F}}}}{C{D}}{C}{C}{C}}{B{C{D{E}}}{C}}{B}{B}{B{C{D{E{F{G}}{F}{F{G}}}{E}}{D{E}{E}}{D}}{C}{C{D}}}{B}}"
+    },
+    {
+        "ID": 68,
+        "t1": "{A{B{C{D{E{F{G{H}{H}{H}}}{F{G{H}{H}}}{F{G}}}}{D{E{F{G}}{F{G}}}{E{F{G{H{I}}{H{I}}{H}{H}{H}}{G}}{F}}{E}}{D{E{F{G{H}{H}{H}}{G{H}{H{I}}{H}}{G{H}{H}}}{F}{F{G{H}}{G}}{F{G}{G}}{F}}{E{F{G}{G}}{F{G}}{F{G}}}}{D{E}}}{C{D{E{F}}{E{F{G}}}}{D{E{F{G}}{F{G{H}}}}{E{F}}{E}}{D}}{C}}{B{C{D}{D}}{C}}{B{C}}{B{C{D}}}{B{C}}}",
+        "t2": "{A{B{C{D{E{F}{F{G{H}{H}}{G}}{F{G}}}{E{F{G{H}}{G{H}{H}}{G{H}}}}{E{F}{F{G{H{I}}}{G}}{F{G}}}}{D{E{F{G{H{I{J}}{I}}{H}}{G}}{F{G{H{I}{I}}}{G{H}}}{F{G}}{F}{F}}}{D{E{F{G}}{F}{F{G}{G}}}{E{F{G{H}}}{F}{F{G}}}{E}{E{F{G{H}}{G}}}{E{F}{F}}{E}}{D}{D}{D{E}{E}{E}}{D}}{C{D}{D{E}{E{F}}{E{F}}{E}}}{C{D{E}{E}}}}{B}{B{C}}}"
+    },
+    {
+        "ID": 69,
+        "t1": "{A{B{C}}{B{C{D{E}}{D{E{F}}{E{F}{F}}{E}}{D{E}}{D{E}}{D{E}}}{C}{C{D}{D}}{C{D{E}{E{F}{F{G}}}}}{C{D{E}{E{F}}{E}}{D{E}}}{C}{C{D{E}{E}}}{C{D}}{C}{C}{C}}{B{C{D{E{F{G}}{F}}{E{F{G{H}}}{F}}}{D{E{F{G}}{F}}{E}{E{F}{F}{F}{F}}{E}}{D}{D{E{F{G}}{F{G}}}}{D}}{C}}{B{C{D{E{F}}}}{C}{C}}{B{C}}{B{C}}{B{C}}{B{C}}{B{C}}{B}}",
+        "t2": "{A{B{C{D{E{F{G{H}{H{I}}}}}}{D{E}}{D}}{C{D}{D}{D}}{C}}{B{C{D{E{F{G{H{I}{I{J}}}{H}}{G}{G{H}}}{F{G{H}}{G}{G}}{F}{F}}{E{F}}{E{F}{F}}{E}{E{F}}{E}}{D}{D}}{C{D{E{F}{F}}}}{C{D}}}{B{C{D{E{F}}}{D{E{F}}{E}}{D{E}}{D}}{C}{C{D}}{C}{C}}{B{C{D{E}}{D}}{C}{C}}{B{C}{C{D{E}{E{F}{F}}{E}{E}}{D{E{F{G}}}}{D{E{F}}}{D}}}{B}}"
+    },
+    {
+        "ID": 70,
+        "t1": "{A{B{C{D{E}}{D{E}{E}}{D{E{F{G}}{F{G{H}}}{F{G{H{I}}}}}{E{F{G}}}}{D}}{C{D{E{F{G{H{I{J}}}{H{I{J}}{I{J}}}{H}{H}}{G{H}}{G}}}{E{F{G}}}{E}}{D{E}}{D{E}}{D{E}{E}}}{C{D{E}{E}}{D{E{F}{F}}{E{F}}{E}}{D{E}}{D{E{F}}{E}}{D}}{C{D{E{F}}}{D{E{F}}{E}}}{C{D}{D}{D}{D}{D}}{C{D{E}{E}{E}}{D}{D{E{F}{F}}}}{C}{C}{C{D}{D}}}{B}}",
+        "t2": "{A{B{C{D{E{F{G}}{F}{F{G}}}{E}{E{F}}}{D{E{F{G}}{F{G{H}}{G}}{F}}}{D{E{F}}{E}{E{F}{F{G}}}{E}{E{F}}}{D{E}{E{F{G{H}}}}{E{F}}}{D}}{C}{C{D{E}}{D{E}}{D}}{C}}{B{C{D}{D}{D{E}}}{C{D{E{F}}{E{F}{F}{F}}{E{F}}}}}{B{C{D}}{C{D{E{F{G}}{F}{F}}{E{F}}{E}{E}}{D{E{F}}{E{F{G}}{F}}{E}}{D{E}{E{F}}}{D{E}}{D}}{C{D}}{C}}{B}{B}}"
+    },
+    {
+        "ID": 71,
+        "t1": "{A{B{C{D{E{F}{F{G}}}}{D{E{F}}{E}{E}}}{C{D}{D{E{F}{F}}}{D}{D}}{C{D{E}{E{F}}{E}}}}{B{C{D{E{F}{F}}}{D}}{C{D{E}}}{C{D}}{C{D}}}{B{C{D{E{F}}{E{F{G{H}}{G}}{F}}{E}}{D{E}}{D}}{C{D{E}}{D{E}{E}}{D{E{F{G}}}{E}}{D}}{C}{C{D{E}}{D{E{F{G}{G{H}{H}}{G}}}}{D}{D{E}{E}{E}}{D}}}{B{C{D}}{C{D}}}{B}{B{C{D}}{C{D}}}{B}{B{C}}}",
+        "t2": "{A{B{C{D{E{F}{F}}{E}{E}}}{C{D}{D}{D{E{F}}}{D}{D{E}}{D{E}}}{C{D}}{C{D}}{C{D}{D}}}{B{C{D{E}{E}}{D{E}{E}{E{F}{F}}{E}}{D}}{C{D{E{F{G{H}{H}}{G}}{F{G{H}}}{F{G{H{I}{I{J}}}{H}}{G}{G{H{I}}}}{F{G}}{F}{F}}{E{F}}{E}}{D{E{F}}{E}}{D}}{C{D{E{F}}{E{F{G{H}{H}{H{I}}}{G{H}}{G}}}{E{F}}}{D{E{F}{F}}}{D}}}{B{C}}{B}{B}{B}}"
+    },
+    {
+        "ID": 72,
+        "t1": "{A{B{C{D{E{F{G}}}{E{F}}{E}{E}}{D{E{F{G{H}}}}{E}}}{C{D{E{F{G}}}{E{F{G}}{F}{F{G{H}{H{I}}}{G}}{F}}{E{F}{F}}{E{F{G}{G{H}}{G}}}{E{F}}{E{F}}}{D{E{F}}}{D{E}{E}}{D}}{C{D{E}{E}}}{C{D}{D}}{C{D{E}}{D{E{F}{F}}{E}}{D}}{C}{C{D}{D}}}{B{C{D}}{C}}{B{C{D}{D{E}}}{C{D}}{C{D{E}{E}}{D{E{F}}}{D}}{C}{C}}{B{C}}{B{C{D}}}{B}}",
+        "t2": "{A{B{C{D{E{F{G{H}}{G}}{F{G}}}{E{F{G}{G{H{I}{I{J}}}{H}}{G}}{F{G{H{I{J}{J}}}}{G}}{F{G{H}}{G{H}}}{F{G{H}{H}}}{F}}{E}}{D{E{F{G{H{I{J}}}}{G}}}{E}}{D{E{F{G{H}{H}}{G{H}}{G{H}}}{F}{F}}{E{F{G}{G{H}{H}}{G}}}}{D{E{F}}{E}}}{C{D{E}}{D{E}}{D}}{C{D{E{F{G{H}{H}{H}}}{F}}}}{C{D}}{C}}{B{C}}{B{C}{C}{C}{C{D}{D}}{C}}{B}}"
+    },
+    {
+        "ID": 73,
+        "t1": "{A{B{C{D{E{F{G{H}{H}{H}}{G{H}}{G}}{F}}{E{F}}}{D{E{F}}}{D}{D{E}}{D}}{C{D{E}}}{C{D{E{F{G{H{I}}}{G{H}}}{F{G{H}}}{F{G}}}{E}{E}{E{F}}{E}}}{C}{C{D}}{C{D}}}{B{C{D{E{F}}{E{F}{F{G}}}{E{F{G}}}{E}}}{C{D{E}}{D{E{F{G{H{I}}}{G}}}{E{F}{F}}}{D{E}}}{C{D{E}{E}}}{C{D}{D{E{F}}}}{C{D{E{F}}}}{C}{C{D{E}}{D}}}{B{C}}{B}{B}}",
+        "t2": "{A{B{C{D{E{F}{F{G}{G}}}{E{F{G}{G}}{F{G}}{F}{F}{F{G}}}{E{F}}{E}}{D}{D{E}}{D}}{C{D}{D}}{C}}{B{C{D{E{F{G}{G}}{F}{F}}{E{F{G{H}}{G}}{F}{F}}}{D{E}}{D}}{C{D{E}}{D}}}{B{C}{C{D{E}{E{F{G}}{F{G}{G}}{F}}{E{F}}}{D}}{C}{C{D}{D{E}{E}{E}}}{C}{C{D}}{C}{C}}{B{C}{C{D}}{C{D}}{C}}{B{C}}{B{C}}{B{C{D{E}}{D{E}}}{C{D}{D}}}}"
+    },
+    {
+        "ID": 74,
+        "t1": "{A{B{C{D{E}{E}}{D{E{F}}{E{F}}{E{F}}{E}{E}}}{C{D{E{F}}{E{F{G{H}{H}}{G}{G}}{F}{F{G}}}{E{F}}{E}{E{F{G}}}}{D{E}{E}{E{F{G}}{F}}{E}}{D}{D}}{C{D}}{C{D}}{C}{C}}{B{C{D{E{F{G{H}{H}}}{F}{F{G}}}{E}}}{C{D{E{F{G}}{F}}{E}}{D{E{F{G}}{F{G}{G}{G{H}{H}}}}{E{F{G}}{F}{F}}{E}{E}}{D}{D}}{C{D}}{C}}{B{C{D}}{C{D}{D{E}}}}{B}}",
+        "t2": "{A{B{C{D{E{F}}{E{F}{F}}{E}}{D{E{F}}{E}}}{C{D{E}{E{F}}{E}{E{F}}{E}}{D{E}{E}{E}}{D{E{F{G{H}}{G}{G}}{F}}{E{F{G}}{F{G{H}}}{F}}{E{F}{F}}}{D{E{F}}}{D{E{F{G}}}{E}{E}}{D}{D{E}{E{F}}}{D}}{C{D{E{F}}}}{C{D}{D{E{F}}}}{C}{C}}{B{C{D{E}}{D{E{F{G{H}}}}}}{C}{C}}{B{C}}{B{C{D{E}}{D{E}{E}}}{C}}{B{C}{C{D{E}}}{C}{C}}{B}}"
+    },
+    {
+        "ID": 75,
+        "t1": "{A{B{C{D{E{F{G{H{I}}}{G{H{I{J}{J}}{I}}{H{I}}{H{I}{I}}}{G}}{F{G}}}{E{F{G{H{I{J}{J{K}}{J{K}{K}}}}{H{I}{I}}}{G{H}{H{I}}{H}{H{I}}{H}}{G}}{F{G{H}}}{F{G}}{F}}{E{F{G{H{I}}{H}{H}}{G}}{F}{F}}}{D{E}{E{F}}}{D{E{F{G}}}{E{F{G}}{F{G}}}}{D{E{F}}{E}}{D{E}}}}{B{C{D{E{F}}}}{C}}{B{C{D{E}}}}{B{C}{C{D}}{C}{C{D{E}}}}{B}}",
+        "t2": "{A{B{C{D}{D{E}}{D{E}}}{C{D}{D{E}}{D}{D{E}}}{C}}{B{C{D{E{F{G{H{I}}}{G}}}{E}}{D{E{F{G{H{I}}{H}{H}}{G}}{F{G}}{F{G}}}{E{F{G{H{I}{I}}{H{I}}}{G}{G}}{F{G}{G}{G}}}{E{F{G}{G}{G}}{F{G}{G{H{I}}{H}{H}}}{F}{F}{F}}{E}{E}}{D{E}}{D{E}}{D}{D}}{C{D{E{F}}{E{F}}}{D}{D{E}{E}}}{C{D}}{C}}{B{C}}{B}{B{C{D}}{C}{C{D}}{C}{C}}}"
+    },
+    {
+        "ID": 76,
+        "t1": "{A{B{C{D}{D{E{F{G}}{F}}{E}{E}}{D{E}{E}}{D{E}}{D{E}}}{C{D{E}{E}}}}{B{C{D{E}}{D{E}}{D}}{C}}{B{C}{C{D{E{F{G{H}{H{I}}}}}}{D{E{F}}{E}{E}{E{F}}}{D{E}}}{C{D}{D}{D{E}}}}{B{C{D{E{F{G}}{F}}{E{F}}{E}}}{C{D}{D}{D}}}{B{C{D{E{F}{F}}{E}}{D}{D}{D{E}}}{C{D{E{F}{F}{F}}{E}}}{C}}{B{C}{C}}{B{C{D{E{F{G}{G}}}}{D}{D}}{C}}}",
+        "t2": "{A{B{C}}{B{C{D{E{F{G{H{I{J}{J}}{I}}{H{I}}{H{I}}{H}}{G{H}}{G{H}}{G{H}}}}{E{F{G{H{I}}}{G{H}}{G{H}{H}}{G{H}{H}{H}}}}{E{F{G}}}{E}}{D{E{F{G}{G}}}{E{F}{F}}}{D}}{C}}{B{C{D{E}{E}{E}}{D{E{F}}{E}}{D}{D}{D}}{C}{C{D}}{C}}{B{C{D{E}{E}}{D}}{C{D{E}{E{F}}}}{C{D}}}{B{C}{C{D}{D}}}{B{C{D{E{F}}}{D}{D}{D}}{C}}{B{C}}{B}}"
+    },
+    {
+        "ID": 77,
+        "t1": "{A{B{C{D{E{F{G}{G{H}}{G}}{F{G}}{F}{F{G}}}{E{F{G}}}{E{F{G}{G}}{F}}}{D{E{F{G}}}}{D}}{C{D{E{F{G{H{I}}{H}{H}}{G{H}}}{F}{F}}{E{F}}}{D}}{C{D{E}{E}{E}}{D{E{F{G{H{I}}{H{I{J{K}{K}}}}}}{F{G}}{F}}{E{F{G}{G}}}{E}}{D{E{F{G{H}}{G{H}}}{F{G}}}{E}{E{F}}}{D{E{F{G{H}{H{I}{I}}}{G}}{F}{F}{F{G{H{I}}{H}}{G{H}}}{F}}}}}{B}}",
+        "t2": "{A{B{C{D}{D{E{F{G{H{I{J}}{I}}{H{I}{I}}}{G}{G}}{F{G}{G}{G{H}}}{F{G{H}}{G}{G}}{F{G}}}{E}{E}}{D{E}}}{C{D{E{F}}}{D{E{F{G{H}}{G}}{F}{F{G}{G}{G}{G}}{F{G{H}}{G}{G}{G}}{F}}{E{F}}{E{F{G{H}}}{F}}}{D}{D}}{C{D{E{F{G}}}}{D{E{F}}}{D}{D{E{F}}{E}}}{C{D}}{C}}{B{C}{C{D}{D}{D{E}}{D}}}{B{C}}{B{C{D}}{C{D}}{C}}{B{C{D}}}}"
+    },
+    {
+        "ID": 78,
+        "t1": "{A{B{C{D{E{F{G{H}{H}}{G{H}{H{I}}}{G{H{I}}}}{F{G}}}{E{F{G{H{I}}}}{F}}{E{F}}}{D{E{F{G{H{I{J}}{I}}}{G{H{I}}{H}{H}{H}{H}}}{F{G{H}{H{I}}}{G{H}}}{F}}{E{F}}{E}}{D{E{F}}{E{F}{F}}{E{F}}}{D}}{C{D{E}}{D}{D}}{C{D}{D}{D}}{C{D}}}{B{C{D}{D}}{C}}{B{C{D{E{F}}{E}{E{F}{F}}{E}}}{C}{C}}{B{C{D{E}{E}}{D}}{C{D{E}}}}{B{C}}}",
+        "t2": "{A{B{C{D{E{F}{F{G{H{I}}{H}}{G}{G}{G}{G{H}}}{F{G}{G{H}}}{F}{F{G{H}}{G{H}}}{F{G}}}{E{F{G}}}{E{F{G}}}{E{F{G{H}}{G{H{I}}}}}}}{C{D{E{F}}{E}}}}{B{C{D{E}{E{F}}}{D}{D}{D}}{C{D{E}}{D}{D}}{C{D{E{F{G}}}{E{F}}{E}}{D{E}}}{C{D{E}{E}{E}}{D}{D}{D{E}{E}}{D{E}}{D}{D}{D}}{C{D}{D}{D{E}}}{C}}{B{C{D{E{F}}}}}{B{C}}{B{C}}}"
+    },
+    {
+        "ID": 79,
+        "t1": "{A{B{C{D{E{F}}}{D}{D}}{C{D}{D}}}{B{C{D{E{F}}{E{F{G}{G{H}}}}{E}}{D}{D{E{F}}}{D}}{C{D{E{F{G}}{F{G}}{F}}{E}}{D{E{F}{F}{F}{F}}{E}{E{F}}{E}}}{C{D}}}{B{C{D{E{F{G}}{F{G{H}{H}}}{F{G}{G{H}{H{I}}}}}{E}}{D{E{F}}}{D}}{C{D{E}{E{F}}{E}{E}}{D}}}{B{C{D}{D{E{F}}{E}}{D}}}{B{C{D{E}{E}{E}}{D}{D}}}{B{C}}{B{C}}{B{C}{C}}}",
+        "t2": "{A{B{C{D{E{F{G{H}}}}}}{C}{C}{C{D}}}{B{C{D{E{F}{F}}}{D{E{F{G}}{F}{F}}{E}{E{F}}{E}}{D{E}{E{F}}{E}}{D}{D{E{F}}}}{C{D}}{C{D}}}{B{C{D{E{F}{F}{F}}{E{F}}{E{F}{F{G}}}}{D}}{C{D}{D{E}}}{C}}{B{C}{C{D}{D{E}{E}{E}}}{C{D{E{F{G}}}}}{C{D}}}{B{C}{C{D{E}}{D{E}}{D}}{C}}{B{C}{C}{C{D}}{C}}{B}{B{C{D{E}}}{C{D{E}}{D{E}}}}}"
+    },
+    {
+        "ID": 80,
+        "t1": "{A{B{C{D{E{F}}{E{F{G}{G{H}}}{F}{F}}{E{F{G{H{I}}}{G}}{F{G}}}{E}}{D{E{F}{F{G}{G{H{I}{I}{I}}{H{I{J{K}}{J}{J}}{I{J}}{I}}}{G}}{F{G{H}{H}{H}}{G}}}{E}}{D{E}}{D{E{F{G}{G{H{I}}{H}}}{F{G}{G{H{I{J}{J{K}}}}}{G}}}{E}{E}{E{F{G{H}{H}}}}{E}}{D{E}}{D{E}{E}}}{C{D}{D{E}{E}}}{C{D}{D}{D}}}{B{C{D}}{C{D{E}{E}{E}}}{C{D}}}}",
+        "t2": "{A{B{C{D{E{F{G{H{I}}}{G{H{I{J{K}}}}}}{F}{F}}{E{F}{F}{F{G{H{I}}}{G}{G{H}}{G}}}{E{F{G{H{I}{I}}}}{F{G}{G}}}}}{C{D{E{F{G{H}}{G}{G{H}{H{I}}{H}{H}}}{F{G{H{I}}{H{I}}}}}{E{F{G}}}}{D{E{F}{F{G{H{I}{I}}{H{I}}{H}}{G{H}}}}{E}{E{F{G{H}}}}}{D}{D{E}{E{F}}}{D}}{C{D{E}}{D}}{C{D}}{C}}{B{C{D}}{C{D{E}{E}}}}{B}{B{C}}{B}}"
+    },
+    {
+        "ID": 81,
+        "t1": "{A{B{C{D{E{F{G}}}{E{F{G}}{F}}}{D{E{F{G{H}{H}}{G}}{F{G}}{F{G}}{F{G}}}{E{F}}{E{F}{F}{F}}{E}}{D{E}}}{C{D}{D}}{C{D}{D}}{C{D}{D}}{C}{C}}{B{C{D{E{F{G}}}{E{F{G}{G{H}{H}}{G}}{F}{F}}{E{F}{F}}}{D}}{C{D{E}{E}}}{C{D{E{F}}}}{C}}{B{C{D{E}{E}}{D{E}{E}}{D}}{C{D}}{C}}{B{C{D{E}}{D}{D}{D}}{C{D}{D}}}{B{C}{C}{C}}{B{C}}}",
+        "t2": "{A{B{C{D{E{F{G}}{F{G{H}}{G}{G}}{F{G}}}}{D{E{F{G}}{F}{F{G}}}{E}}{D{E}}}{C}{C}{C{D}}}{B{C{D{E{F}}}{D{E{F{G{H{I}}}}{F}}{E}{E{F}}{E}{E{F}}{E}}}{C{D{E{F{G}}}}{D}}{C{D}{D}}{C}}{B{C{D{E{F}{F{G}{G}}}{E}{E}}{D{E}}{D}}{C{D{E}{E{F}{F{G}}}{E}}{D}{D}}{C{D{E}}{D{E}}{D{E{F}}}{D}{D}}{C{D}}}{B{C}{C{D}}}{B{C}{C}{C}}}"
+    },
+    {
+        "ID": 82,
+        "t1": "{A{B{C{D{E{F}}{E{F}}}{D{E}}{D{E{F}}}{D{E{F}}}{D}}{C{D{E}}}{C{D}{D{E{F}}{E}}{D{E}}}{C}{C}}{B{C{D}{D}}{C{D{E}}}{C{D}{D}}{C{D{E}}{D{E}}{D}}{C{D{E{F{G}}}}}}{B{C{D{E{F}{F}{F{G}}}{E}}{D{E{F}}{E{F{G}}{F{G}}}{E}}{D}}{C{D}{D}}{C}{C{D{E{F}}}{D{E}}}{C{D{E{F}{F{G}}{F{G}}}{E{F}}{E{F}{F}}}}{C}}{B}{B{C}}{B{C}{C}}}",
+        "t2": "{A{B{C{D{E}}}{C{D{E{F}}{E{F}}}{D}}{C{D{E{F}}{E{F}}}}{C{D{E{F}{F{G}}}}{D{E{F{G}}{F{G}}{F}}{E{F{G{H}}}}{E}}{D}{D{E{F}}{E}{E}}{D}}{C{D}{D{E}{E{F}}}}{C{D{E}{E}}}}{B{C{D{E{F{G{H}}}{F{G{H}}}{F}}{E{F{G{H{I}{I}}}{G}}{F}{F}}{E}}}{C{D}{D}{D}}{C{D}{D{E{F{G}{G}{G}}{F{G}}{F}}{E{F}}{E{F}}}{D}{D}}{C}{C}{C}{C}}{B}}"
+    },
+    {
+        "ID": 83,
+        "t1": "{A{B{C{D}}{C{D{E}{E}{E}}{D{E}}}}{B{C{D{E{F}{F}}{E}{E{F{G{H{I{J}{J}}}}}{F}{F{G}{G{H}}}}{E}}{D{E{F{G}}}{E}{E}{E{F}}}{D{E}{E}{E}{E}}{D{E{F}}}}{C{D{E}{E{F{G}}{F{G}}}{E{F}{F}}}{D{E{F{G}{G}}}{E}}{D}{D}}{C{D{E{F}}{E}}{D{E{F}}{E}{E}}{D}}{C}{C}}{B{C{D{E{F{G}{G}}}}{D{E{F{G{H}}}}}{D}}{C{D}{D}}{C}}{B{C}}{B{C}}}",
+        "t2": "{A{B{C}{C{D{E{F}}{E{F{G{H{I}}}{G{H}}{G{H}}}}}{D{E{F{G}{G}{G}}{F{G}}}{E}{E{F}}}{D{E}}}{C{D}{D{E}{E}}{D}}{C}}{B{C{D{E{F{G{H}}{G}}}{E{F}{F}{F}}{E}}{D{E}{E}}{D{E}}{D}{D}}{C{D{E}{E}{E}}{D}}{C}{C}}{B{C{D{E{F}{F{G}}{F}}{E}}{D{E{F{G{H}}{G{H}}}}{E}}{D{E{F}{F}}}}{C{D{E}{E}}{D}}}{B{C{D}}}{B}{B{C}}{B{C}}{B}{B}}"
+    },
+    {
+        "ID": 84,
+        "t1": "{A{B{C{D{E{F{G{H}}}{F}{F{G{H}}}{F}}}{D}}{C{D{E{F}{F{G}}{F}}{E{F}{F{G}}{F}}{E{F{G}}}}{D}{D}}{C{D{E}}}{C{D}}{C}}{B{C{D}{D{E{F}{F{G}}}}{D}{D}{D}}{C{D}}{C}}{B{C{D{E}{E}}{D{E{F}{F{G}{G}}{F{G}}}}}{C{D{E{F}}{E}{E}}{D}{D}{D}}{C}{C{D{E{F}}{E}}{D}}{C}{C}}{B{C{D}}{C{D{E{F}}}}{C{D}{D}}}{B{C{D{E{F}}}}{C{D}}}{B}}",
+        "t2": "{A{B{C{D{E{F}}{E}{E}{E}}{D{E{F}}{E{F{G{H}}}}{E{F{G}}}{E{F}}}{D{E{F}{F{G}}}{E{F{G}{G{H}}}{F{G}}{F}}{E{F}}}{D}{D{E}}}{C{D{E}{E}}{D{E}{E{F{G}{G}{G}}{F{G{H}}{G}}{F}}}{D}}{C{D{E{F{G}}{F}}{E{F}}{E{F}}}{D{E{F{G{H{I{J}{J}}}}{G{H}}{G}}{F{G}}}}{D{E}}{D}}{C{D{E}}}}{B{C{D}}{C}}{B}{B{C{D}{D{E{F}}}}{C}}{B}{B}{B}}"
+    },
+    {
+        "ID": 85,
+        "t1": "{A{B{C{D{E}{E{F}}{E{F{G}}}{E}{E}}{D{E{F{G}}}}{D{E{F{G{H}}}}{E}}}{C{D}{D}}{C}}{B{C{D{E}{E{F}{F{G}}}}{D{E}{E}}{D}{D}}{C{D}{D}}{C{D{E}}}{C}{C}}{B{C{D{E}}{D}{D{E}{E}}{D}}{C}{C{D{E{F{G}}}}{D{E}{E}}{D}{D}}{C{D}}}{B{C{D{E}}{D}}}{B{C{D{E}{E}}{D{E}{E{F{G}}}{E{F}}}{D}{D}}{C}{C{D{E{F}}}}{C}}{B}{B{C{D}{D}}{C}}}",
+        "t2": "{A{B{C{D{E{F{G}}{F{G}{G}}{F{G}{G}}{F}}{E{F{G}}{F{G{H}}{G}}{F{G}}}}{D{E{F}{F}}}{D{E{F{G{H}}}{F{G}}}}{D{E{F{G}{G{H}}{G{H}{H}{H}{H}}{G}}{F{G}}{F}{F}}{E}{E}{E}}{D{E}}{D{E}}{D{E{F}}}{D}}{C{D{E}}{D{E{F}}{E}{E{F}{F}}}{D{E{F{G{H}}{G}}}{E}{E{F}}}{D}}{C{D{E}}}{C}{C}}{B{C{D}{D}}{C}}{B{C{D}{D}}{C{D{E}}{D}{D}}}}"
+    },
+    {
+        "ID": 86,
+        "t1": "{A{B{C{D{E{F{G{H{I}}{H}}{G{H{I{J}{J{K}}}{I}{I}}{H{I}{I{J}}}{H}}{G{H}}{G{H}}}{F{G{H{I}{I}}}}{F}}{E}{E{F}}}{D{E{F}{F{G}{G{H{I}}}{G}}}{E{F}}}{D{E}{E}}{D}}{C}{C{D{E{F}}}}{C{D}}{C}}{B{C{D{E{F{G{H}}{G}}}{E{F{G}}{F}{F{G}{G}}{F}}}{D}}{C}{C{D{E{F}}{E{F{G}}}{E}}{D}}{C{D}{D}}}{B{C{D{E{F}}}}}{B{C{D{E{F}}}{D}}}}",
+        "t2": "{A{B{C{D{E{F}}{E{F}{F}}{E{F}}{E{F}}}}{C{D{E{F{G{H}{H}}{G}{G}}}{E{F{G}{G}{G}{G}{G}{G}}{F{G}}}{E}}{D{E}}}{C}}{B{C{D{E{F}{F{G{H}}}{F}}{E{F{G{H{I{J}{J}}}{H}}{G{H{I}{I{J}}}}{G{H}{H{I}{I{J}}}{H{I}}}{G}}{F{G{H}}}}}{D{E{F{G}{G}}}{E{F}}{E{F}}}{D{E{F{G{H{I}}}{G}}}{E}}{D{E}}{D}}{C{D{E}{E}}}{C}}{B}{B{C}}{B{C}}}"
+    },
+    {
+        "ID": 87,
+        "t1": "{A{B{C}{C{D}{D}}{C{D{E{F}}}}}{B{C{D}}{C}}{B{C{D{E{F{G{H}}{G}{G}}{F{G{H}}{G}}{F}}{E{F{G{H}}}{F}{F}}{E}}}{C}}{B{C{D}}{C{D{E{F{G{H{I}}}}}{E{F}}}{D}}{C{D{E{F}{F{G{H{I{J}}}}{G}}{F}}{E}}{D{E{F{G{H}}{G}{G}{G}}}{E}{E}}{D{E}{E{F}{F}}{E}}{D{E{F}}{E}{E{F}}{E}}{D{E}{E}{E}}}{C{D}}}{B{C{D}{D}}{C}{C{D}}}{B}{B}{B}}",
+        "t2": "{A{B{C{D}{D{E{F{G}}{F{G}}{F{G}{G{H}}}}}{D{E{F}}}{D}}{C{D{E{F{G{H}}}}{E{F}}}}{C{D}}{C{D}}}{B{C{D{E{F}{F{G{H}}{G{H{I}}}}}{E{F}}{E{F}}{E}}{D{E}{E}}}{C{D{E{F{G{H{I}}}{G{H{I}}{H{I}}}{G{H}{H}}{G}}{F}}}{D{E}}{D{E}{E}}}{C{D{E}}{D}{D}{D}}{C{D{E{F}}}}{C{D{E}}{D{E}}}{C{D{E{F}}}}{C}}{B{C{D}{D}{D}}}{B{C}}{B}{B}}"
+    },
+    {
+        "ID": 88,
+        "t1": "{A{B{C{D{E{F}}}{D}}{C}{C{D{E}}{D}{D}{D}}{C{D}}{C}{C}}{B{C{D{E{F}{F{G}}{F{G}{G{H{I}}{H}{H}{H}}}{F}}{E}{E}}{D{E}{E}}{D}}{C{D{E}}}{C{D{E}}{D}{D}}{C{D}}{C{D}}}{B{C{D{E{F{G}}{F{G}{G{H}}{G}}}{E{F}}}{D{E{F}}{E{F}}{E}}{D{E}}{D}{D}}{C}}{B{C}{C{D{E{F{G}}}{E{F}}}}{C{D{E{F}}{E}}{D}}}{B{C{D}}}{B{C{D}}}{B}{B{C}}}",
+        "t2": "{A{B{C{D{E{F}{F}}{E{F{G}}{F}}{E{F}{F}}{E}}}{C{D{E{F}}{E}{E}}{D}{D{E}{E{F{G}}}{E{F{G{H{I}}}{G}}}}{D{E{F}}{E}}}{C}{C{D{E}{E}}{D{E{F}}{E}}{D}{D}{D}{D}{D}}{C{D}{D{E{F}}}{D}}{C{D{E{F{G{H}}{G}}}}{D}{D{E}}}{C}{C}}{B{C{D}}{C{D{E{F{G{H{I}{I}}{H}}{G{H}}{G}}{F{G{H}}}}{E{F}}{E{F}}}}{C{D}}{C}}{B}{B}{B{C}{C{D}}}}"
+    },
+    {
+        "ID": 89,
+        "t1": "{A{B{C{D{E{F}{F}}{E{F}{F{G}}{F}}{E{F{G}}}{E}}{D{E{F{G{H{I}{I}}}}{F}{F}{F}}{E{F}{F}{F}}}{D{E}{E}{E{F}}}{D{E}}}{C{D{E{F{G}}}}}{C{D}}{C{D{E{F}{F}}}{D}}{C{D{E{F}}}}}{B{C{D{E{F}}{E}}{D{E{F{G{H{I{J}}{I}}{H}}{G{H}}}{F}{F{G}}}{E}}{D}}{C{D}{D{E}}}{C{D{E{F}}}}}{B{C{D}}{C{D{E{F}}{E}}{D{E}}}}{B}{B{C{D}}}{B{C}}}",
+        "t2": "{A{B{C{D{E{F}}{E{F{G{H{I}}{H}}}{F}}{E}}{D{E{F{G{H{I}}}}{F}{F}{F{G{H}}}}{E{F{G}{G}{G}}{F}{F}{F}}{E{F}{F}{F}}{E{F}}{E}{E}}{D{E{F}{F}}}}{C{D{E}{E{F}}}{D{E{F}}{E}{E}{E}}{D}}{C}{C{D}}{C{D}}}{B{C{D{E{F}}{E{F{G}{G}{G}}}{E}{E}}{D{E{F}}}}{C{D{E}}{D}}}{B{C{D{E{F}{F}}}{D}}{C{D{E}{E{F}}}{D{E}}}{C}{C{D}}{C}{C}}}"
+    },
+    {
+        "ID": 90,
+        "t1": "{A{B{C{D{E}{E{F{G{H}}}{F}}{E{F}}}{D{E{F{G}}{F}{F}}{E}{E{F}}{E{F}}{E}}{D{E{F}}}}{C{D{E{F}}{E{F}{F}}{E}{E}}}{C{D{E}}}{C}}{B{C{D}{D{E{F{G}}{F}}}}{C{D{E{F}}}{D}}{C}}{B{C{D{E{F}{F}}{E{F}{F}{F{G{H{I{J}}}}{G}{G}}}}{D{E{F}}}{D{E}}{D}}{C{D{E}{E{F{G}}{F}}}{D{E}}}{C{D{E}}{D}{D{E}}}{C}}{B}{B{C}{C}{C}{C}}{B{C}}}",
+        "t2": "{A{B{C}{C{D}{D{E}}}{C}}{B{C{D}{D{E}}{D{E}}{D}}{C{D}{D}{D}{D}{D}}{C{D{E}}{D{E}}{D{E{F}}}{D{E{F}}{E{F}}}}{C{D}{D{E}}{D}}{C{D}}{C{D{E{F}{F}}{E{F}}}}{C}}{B{C{D}{D}}{C{D}}{C{D{E{F}{F}}{E{F{G{H}}}}{E}}{D{E{F}}}{D}{D}}{C}{C}}{B{C{D{E}}{D}}{C}}{B{C}}{B{C}{C}{C}}{B{C}{C{D}}{C}}{B{C{D}{D}}{C}{C{D}}}{B}{B}{B}}"
+    },
+    {
+        "ID": 91,
+        "t1": "{A{B{C}{C{D}}{C}{C}{C}{C}}{B{C{D{E{F}{F{G{H}}{G}{G}{G}}}{E}{E}}}{C{D{E{F{G{H}}}{F}}{E{F{G}{G}}}{E{F{G{H{I}}{H}}{G}{G}}{F{G}}{F}}{E}}{D{E}}}{C{D{E{F}{F}}{E}}{D}{D}{D}}}{B{C{D{E}}{D{E{F{G{H{I}{I{J{K}}}}}}{F}}{E{F{G}}}{E{F}}{E}}{D}}{C{D{E{F}}}{D{E}{E}}}{C}{C}{C}}{B{C{D}{D{E{F}}}{D{E}{E{F}}{E}}}}{B}{B}}",
+        "t2": "{A{B{C{D{E{F}}}{D}}{C{D{E{F}}{E}}{D{E}}}{C}{C}{C}}{B{C{D{E{F}}{E}}{D}}{C{D}{D{E}{E{F}}{E}{E}}{D{E{F}}{E}}}{C{D}}{C}}{B{C}}{B{C{D}{D{E}{E}{E}}{D}}{C{D}{D{E}}{D{E}}}}{B{C{D{E{F{G}{G}}{F}}}{D{E{F}{F}}{E}}{D}{D{E}}{D}}{C{D{E{F{G{H}}}{F}}}}{C{D{E}}{D}}{C{D{E}{E}}}{C{D{E}{E}}}{C{D}}}{B{C{D{E}{E}}}}{B{C}}}"
+    },
+    {
+        "ID": 92,
+        "t1": "{A{B{C{D{E}}{D{E{F{G{H}}}{F}{F}}{E}}{D}}{C{D{E}}{D}}{C{D{E}{E}{E}}}{C{D}{D}}}{B{C{D}}{C}{C}}{B{C{D{E}{E{F}{F}}}{D{E}{E}{E}}{D{E}}{D}{D}{D}{D}{D}{D}{D}}{C{D{E{F}{F}}{E}{E}{E}}}{C{D}{D}}{C{D{E}}{D}}{C}{C{D}}}{B{C{D{E}}{D{E}{E{F}}}}}{B{C{D{E{F{G{H}{H}}}}{E{F{G}}}{E}}{D}}{C{D}}{C{D}{D}}{C{D}}{C{D}}{C}}}",
+        "t2": "{A{B{C{D{E{F{G{H}}{G}{G}}{F}{F{G{H}{H{I}}}{G{H}}{G}}{F{G}}{F}}{E{F}}}{D{E}{E{F{G}}}{E}}{D{E{F{G}}{F}}{E{F{G}}}{E}{E}}{D{E}}{D{E}{E}{E{F{G}{G{H}}}{F{G}}{F{G}{G}{G}}}{E}}}{C{D{E{F}}{E{F}}{E{F}{F}}{E{F}}{E{F{G{H{I}}{H{I}}}{G}{G}}{F{G}}{F}}{E{F}}}{D{E}{E}}{D}}{C}{C{D}{D{E}}}{C{D{E}}{D}{D}}{C}{C{D}}}{B}}"
+    },
+    {
+        "ID": 93,
+        "t1": "{A{B{C{D{E{F{G}}}{E}}{D{E{F{G{H}{H}}{G}}{F{G}}}}{D{E{F{G}{G{H{I{J}}{I}}}{G}{G}}{F}{F}}{E{F{G{H{I}}}{G{H}}{G{H}}}}{E}{E}}{D{E{F{G{H{I{J}}}}}}{E}}{D}{D}}{C{D}{D}}{C{D}}}{B{C{D{E}}}}{B{C{D{E{F{G{H}}{G{H}}}}}{D{E}}{D{E}{E{F{G}}}{E}}{D{E}}{D{E{F}}}{D{E{F}{F}}}}{C{D}}}{B{C{D}}{C{D}}{C{D}}}{B{C}{C}}{B{C}}}",
+        "t2": "{A{B{C{D{E{F{G{H}}{G}}}{E{F{G{H{I}{I}{I{J}}}{H}}{G}}{F{G{H{I{J}}}{H}{H}}{G{H{I{J}}}}{G}}}{E}{E}}{D{E{F}}}{D{E{F{G}{G{H}}}{F}{F}}{E{F}{F}}{E{F}}{E{F{G}}{F}}{E{F}{F{G}}}}{D}}{C{D{E{F{G{H}}}{F{G}{G}{G}}{F}{F}}{E}}}{C{D{E}{E}}{D{E}}{D}}{C{D{E}{E}{E}}}{C{D{E}}}{C{D{E}{E}{E}{E}}{D{E{F}}{E}}{D}{D}}{C}{C}}}"
+    },
+    {
+        "ID": 94,
+        "t1": "{A{B{C{D{E{F}}{E{F}{F{G{H}{H}}}{F}}{E}{E}{E}}{D{E{F{G}}{F{G{H}}{G{H}}{G}}}{E{F{G}}{F}}}{D}}{C{D{E}}{D}}{C}{C{D{E}}{D}}{C{D{E}{E}}}{C{D}}{C{D{E{F{G}}}{E}}}}{B{C{D}{D{E{F}{F{G{H}}}{F}{F}}{E}}{D}}{C}{C}}{B{C{D{E{F}}{E}}{D}}{C{D{E{F}}{E{F}}{E{F{G}}}{E}}{D}{D{E}{E}}}{C{D}{D}{D}}{C}{C{D}{D}{D}}}{B{C}}{B}}",
+        "t2": "{A{B{C{D}}{C{D}{D{E{F{G}}}}{D}}}{B{C{D{E{F{G}}}{E{F}}{E{F}}{E}}{D{E{F{G{H}}{G{H}{H}}}{F}}{E}{E{F{G}}{F{G}{G{H}}{G{H}{H}}{G}{G}}{F{G}{G}}{F}}{E{F}}{E}{E}}{D{E{F}{F{G{H}}{G}}{F}{F{G}{G}}}{E}}}{C{D}}{C{D{E}{E}{E{F}}}{D{E}}{D{E}}{D}}{C{D{E{F{G}}{F}}{E}{E}}{D{E}}{D}{D}}}{B{C}{C}{C{D{E}{E}}}{C{D{E}}}}{B}}"
+    },
+    {
+        "ID": 95,
+        "t1": "{A{B{C{D{E{F{G}}}{E}}{D{E{F{G}{G{H}}{G}}{F}{F}}{E{F}{F}}{E{F{G{H{I}}}}{F}}}{D{E{F}{F}}{E{F}}{E{F}}}{D{E{F{G}{G}}{F}}}{D{E}}}{C{D{E{F{G}{G}}}{E{F}{F}}}{D{E}{E{F}{F}}}}{C}{C{D}}{C}}{B{C{D{E{F}}{E}}{D{E{F}}}}{C{D}{D{E}}}{C}}{B{C{D}{D}{D}}{C{D}}{C{D}}{C}}{B{C{D{E{F{G}}}}{D}}{C}{C}}{B{C}{C{D}}}{B{C}{C}}}",
+        "t2": "{A{B{C{D{E{F{G}}{F}{F}}{E}}{D{E}{E{F}}{E}}}{C{D{E{F{G}{G{H}}}}{E{F{G}}}{E}{E{F{G}}{F}}}{D{E{F{G}{G}}{F{G{H}}}{F{G{H{I}}{H{I}{I}}}{G{H{I}}}}{F}{F{G{H}}}{F}}{E{F{G{H}}{G{H}}}{F{G}}{F{G}}}{E{F{G{H}{H}}}}{E{F}{F}{F}}{E{F{G}{G}}}}{D{E{F}}{E{F}{F{G}}}}{D{E}}{D}{D}}{C}{C{D{E{F}}{E}{E}}{D{E}}{D}{D}}{C}}{B}}"
+    },
+    {
+        "ID": 96,
+        "t1": "{A{B{C{D{E{F{G{H}}{G}}{F}}{E{F{G{H}{H}{H}}{G{H{I}}}{G}}{F}{F}}}{D{E{F{G{H}{H}}{G{H{I}{I}{I}}{H}}}{F}{F{G}}{F{G{H}}{G}}{F}{F}{F}}{E{F}}}{D{E{F{G{H}}}{F{G}{G}}{F}}{E}}{D}{D}{D{E}}}{C{D}}{C}}{B{C{D{E{F{G{H{I}}{H{I}}{H}}}}{E{F}{F}}}{D{E{F}{F}}{E}}}{C{D}{D}{D{E}}}{C}}{B{C{D}}}{B{C}}{B}{B{C{D}{D{E}}}{C}}}",
+        "t2": "{A{B{C{D{E{F{G}}{F}}{E{F}}{E{F}}{E}}{D{E{F{G}}{F{G{H}}{G}}}{E}}{D}}{C{D{E{F}{F}}}{D{E{F}}{E}{E{F}}{E}}{D{E}{E{F}}}{D{E{F{G}}}{E{F{G}{G}}{F}{F{G}}{F{G{H}{H}}{G{H}}}{F{G{H}}{G}}{F}}}{D{E{F}}{E}}{D{E{F}}}{D{E}{E}}}{C{D}}}{B{C{D{E{F}}}}}{B{C{D{E{F{G}}}}{D{E{F}{F}}{E{F}}{E}}{D}{D{E}{E}}}{C}{C{D{E}}}}{B}}"
+    },
+    {
+        "ID": 97,
+        "t1": "{A{B{C{D}{D{E{F{G}{G}}}}{D}{D}{D}}{C{D{E}{E{F}}{E}}{D{E}}}{C}}{B{C{D{E{F{G{H}{H{I}}{H{I}}{H}}}{F}}{E}{E}{E}{E}}{D}{D{E{F{G{H}}{G{H{I}{I}}}}{F}}}{D{E}}}{C{D{E{F}{F}}{E}}{D{E{F{G{H}}}}{E}}{D}}{C{D{E{F}}}{D{E{F{G{H{I}}}{G}}}{E}{E}}{D{E}}{D{E}{E}}{D{E}{E}}{D}}{C}{C{D}}{C{D}}}{B}{B{C}}{B{C{D}}{C{D}}}{B}}",
+        "t2": "{A{B{C{D{E{F{G{H}{H}}{G}}{F}{F}{F}}{E{F}}}{D}{D{E}{E}}{D{E}}{D}{D{E}}}{C{D{E}}{D{E{F}{F}}{E{F{G}}{F}{F}{F}}{E{F{G}}{F}}{E{F{G}}{F}}}{D{E{F}}}{D{E}{E{F{G{H}}}}{E{F{G}{G}}}{E{F}}}{D{E{F}}}}{C{D}}{C{D{E{F}}{E{F}}}{D}{D}}{C{D{E{F}{F{G}}}{E}}}{C}}{B{C}{C{D{E{F{G}}}{E{F}{F}{F}}}{D{E}{E{F}}}{D}}}{B{C}}{B}}"
+    },
+    {
+        "ID": 98,
+        "t1": "{A{B{C{D{E{F}}{E}{E}{E}}{D{E{F{G{H}{H}}}{F}}{E}{E}}{D{E{F{G{H{I{J}}{I}}}{G}{G{H}}}}{E{F{G{H}}}{F}}{E{F{G}}}}{D{E}}{D}}{C{D{E{F}}{E{F{G{H}}{G}}{F}{F}{F{G}}}{E}{E}}{D{E{F}{F}}}{D}{D}}{C{D{E{F{G}}}{E{F}{F}}}{D{E}}{D}{D{E}{E}}{D}}{C{D}{D}}{C}}{B{C}}{B{C}}{B{C}}{B{C{D{E{F}}}{D{E}}{D}}{C{D}}{C}{C}}{B{C}}}",
+        "t2": "{A{B{C{D{E{F{G{H{I}}}{G}{G}}{F{G{H}}{G}{G{H}}{G{H}}}}{E{F}}{E}{E}}{D{E{F}{F}}{E{F{G}{G}}}{E}}{D{E{F}{F{G}}}}{D{E{F{G}}}{E{F}}}{D{E{F{G}}}}}{C{D}{D}}{C{D}}{C{D{E{F}}{E{F}{F}{F}}{E}{E{F{G{H{I}}}}{F}}{E}}}{C{D}}}{B{C{D}{D{E}}{D}}{C{D}{D}}{C{D{E{F}{F}}}}{C{D{E}}{D}{D}}{C{D}}{C{D}}{C}}{B{C{D}{D}}}{B{C}}}"
+    },
+    {
+        "ID": 99,
+        "t1": "{A{B{C{D}}{C{D}}{C{D{E{F{G}}}}{D{E}}}{C}{C}}{B{C{D}{D}}{C}}{B{C{D{E{F{G}{G}}{F}}}{D{E}{E{F}{F{G}}}{E{F}}{E}}}{C{D{E{F{G{H}}{G}}}{E}{E{F}}{E}}{D{E}{E{F}}}}{C{D}}{C}}{B{C{D{E{F}}{E}}{D{E{F}}}{D{E}}{D}}{C{D{E{F}}}{D}}{C{D}}{C}}{B{C{D{E}{E}{E}{E}{E}}{D}}{C{D}{D{E{F{G}}}{E}}{D}{D}}}{B{C{D}}}{B{C{D}}}{B}}",
+        "t2": "{A{B{C{D{E}}{D{E}{E{F}}}{D}{D}{D}}{C{D{E{F}}{E}}{D{E}{E}}}}{B{C}{C}{C}}{B{C{D{E{F}}}{D}{D}}{C{D}{D}}{C{D}}{C{D}}}{B{C{D}{D{E{F}}}{D{E{F}{F}}{E{F{G}}}{E}}{D}{D{E}}}{C}{C{D}}}{B{C{D{E}}}{C{D}}{C{D}}{C{D}{D}}}{B{C{D{E{F{G}}}{E}{E}}{D{E}}}{C}{C}{C}{C{D{E}}}{C}}{B{C{D{E{F}}{E}{E}}{D{E}{E}}}{C}}{B{C}}{B}}"
+    }
 ]
