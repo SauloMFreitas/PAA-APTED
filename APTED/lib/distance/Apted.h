@@ -1083,6 +1083,241 @@ private:
         return -1;
     }
 
+    void computeOptStrategy_postL() {
+        Integer size1 = this->it1->getSize();
+        Integer size2 = this->it2->getSize();
+
+        assert(delta.size() == 0);
+        delta.resize(size1);
+        for (size_t i = 0; i < delta.size(); i++) {
+            delta[i].resize(size2);
+        }
+
+        std::vector<std::vector<float>> cost1_L(size1);
+        std::vector<std::vector<float>> cost1_R(size1);
+        std::vector<std::vector<float>> cost1_I(size1);
+        std::vector<float> cost2_L(size2);
+        std::vector<float> cost2_R(size2);
+        std::vector<float> cost2_I(size2);
+        std::vector<Integer> cost2_path(size2);
+        std::vector<float> leafRow(size2);
+        Integer pathIDOffset = size1;
+        float minCost = 0x7fffffffffffffffL;
+        Integer strategyPath = -1;
+
+        std::vector<Integer> &pre2size1 = this->it1->sizes;
+        std::vector<Integer> &pre2size2 = this->it2->sizes;
+        std::vector<Integer> &pre2descSum1 = this->it1->preL_to_desc_sum;
+        std::vector<Integer> &pre2descSum2 = this->it2->preL_to_desc_sum;
+        std::vector<Integer> &pre2krSum1 = this->it1->preL_to_kr_sum;
+        std::vector<Integer> &pre2krSum2 = this->it2->preL_to_kr_sum;
+        std::vector<Integer> &pre2revkrSum1 = this->it1->preL_to_rev_kr_sum;
+        std::vector<Integer> &pre2revkrSum2 = this->it2->preL_to_rev_kr_sum;
+        std::vector<Integer> &preL_to_preR_1 = this->it1->preL_to_preR;
+        std::vector<Integer> &preL_to_preR_2 = this->it2->preL_to_preR;
+        std::vector<Integer> &preR_to_preL_1 = this->it1->preR_to_preL;
+        std::vector<Integer> &preR_to_preL_2 = this->it2->preR_to_preL;
+        std::vector<Integer> &pre2parent1 = this->it1->parents;
+        std::vector<Integer> &pre2parent2 = this->it2->parents;
+        std::vector<bool> &nodeType_L_1 = this->it1->nodeType_L;
+        std::vector<bool> &nodeType_L_2 = this->it2->nodeType_L;
+        std::vector<bool> &nodeType_R_1 = this->it1->nodeType_R;
+        std::vector<bool> &nodeType_R_2 = this->it2->nodeType_R;
+
+        std::vector<Integer> &preL_to_postL_1 = this->it1->preL_to_postL;
+        std::vector<Integer> &preL_to_postL_2 = this->it2->preL_to_postL;
+        std::vector<Integer> &postL_to_preL_1 = this->it1->postL_to_preL;
+        std::vector<Integer> &postL_to_preL_2 = this->it2->postL_to_preL;
+
+        Integer size_w,
+            size_v,
+            parent_w_preL,
+            parent_v_preL,
+            parent_w_postL = -1,
+            parent_v_postL = -1;
+        Integer leftPath_v,
+            rightPath_v;
+
+        std::vector<float> cost_Lpointer_v,
+                           cost_Rpointer_v,
+                           cost_Ipointer_v;
+        std::vector<float> cost_Lpointer_parent_v, 
+                           cost_Rpointer_parent_v,
+                           cost_Ipointer_parent_v;
+        std::vector<float> strategypointer_parent_v;
+
+        Integer krSum_v, revkrSum_v, descSum_v;
+        bool is_v_leaf;
+
+        Integer v_in_preL;
+        Integer w_in_preL;
+
+        std::stack<std::vector<float>> rowsToReuse_L;
+        std::stack<std::vector<float>> rowsToReuse_R;
+        std::stack<std::vector<float>> rowsToReuse_I;
+
+        for(Integer v = 0; v < size1; v++) {
+            v_in_preL = postL_to_preL_1[v];
+
+            is_v_leaf = this->it1->isLeaf(v_in_preL);
+            parent_v_preL = pre2parent1[v_in_preL];
+
+            if (parent_v_preL != -1) {
+                parent_v_postL = preL_to_postL_1[parent_v_preL];
+            }
+
+            size_v = pre2size1[v_in_preL];
+            leftPath_v = -(preR_to_preL_1[preL_to_preR_1[v_in_preL] + size_v - 1] + 1);// this is the left path's ID which is the leftmost leaf node: l-r_preorder(r-l_preorder(v) + |Fv| - 1)
+            rightPath_v = v_in_preL + size_v - 1 + 1; // this is the right path's ID which is the rightmost leaf node: l-r_preorder(v) + |Fv| - 1
+            krSum_v = pre2krSum1[v_in_preL];
+            revkrSum_v = pre2revkrSum1[v_in_preL];
+            descSum_v = pre2descSum1[v_in_preL];
+
+            if (is_v_leaf) {
+                cost1_L[v] = leafRow;
+                cost1_R[v] = leafRow;
+                cost1_I[v] = leafRow;
+                for(Integer i = 0; i < size2; i++) {
+                    delta[v_in_preL][postL_to_preL_2[i]] = v_in_preL;
+                }
+            }
+
+            cost_Lpointer_v = cost1_L[v];
+            cost_Rpointer_v = cost1_R[v];
+            cost_Ipointer_v = cost1_I[v];
+
+            if (parent_v_preL != -1 && cost1_L[parent_v_postL].size() == 0) {
+                if (rowsToReuse_L.empty()) {
+                    cost1_L[parent_v_postL] = std::vector<float>(size2);
+                    cost1_R[parent_v_postL] = std::vector<float>(size2);
+                    cost1_I[parent_v_postL] = std::vector<float>(size2);
+                } else {
+                    cost1_L[parent_v_postL] = rowsToReuse_L.top();
+                    rowsToReuse_L.pop();
+
+                    cost1_R[parent_v_postL] = rowsToReuse_R.top();
+                    rowsToReuse_R.pop();
+
+                    cost1_I[parent_v_postL] = rowsToReuse_I.top();
+                    rowsToReuse_I.pop();
+                }
+            }
+
+            if (parent_v_preL != -1) {
+                cost_Lpointer_parent_v = cost1_L[parent_v_postL];
+                cost_Rpointer_parent_v = cost1_R[parent_v_postL];
+                cost_Ipointer_parent_v = cost1_I[parent_v_postL];
+                strategypointer_parent_v = delta[parent_v_preL];
+            }
+
+            fillArray(cost2_L, 0.0f);
+            fillArray(cost2_R, 0.0f);
+            fillArray(cost2_I, 0.0f);
+            fillArray(cost2_path, (Integer)0);
+
+            for(Integer w = 0; w < size2; w++) {
+                w_in_preL = postL_to_preL_2[w];
+
+                parent_w_preL = pre2parent2[w_in_preL];
+                if (parent_w_preL != -1) {
+                    parent_w_postL = preL_to_postL_2[parent_w_preL];
+                }
+
+                size_w = pre2size2[w_in_preL];
+                if (this->it2->isLeaf(w_in_preL)) {
+                    cost2_L[w] = 0L;
+                    cost2_R[w] = 0L;
+                    cost2_I[w] = 0L;
+                    cost2_path[w] = w_in_preL;
+                }
+
+                minCost = 0x7fffffffffffffffL;
+                strategyPath = -1;
+                float tmpCost = 0x7fffffffffffffffL;
+
+                if (size_v <= 1 || size_w <= 1) { // USE NEW SINGLE_PATH FUNCTIONS FOR SMALL SUBTREES
+                    minCost = std::max(size_v, size_w);
+                } else {
+                    tmpCost = (float) size_v * (float) pre2krSum2[w_in_preL] + cost_Lpointer_v[w];
+                    if (tmpCost < minCost) {
+                        minCost = tmpCost;
+                        strategyPath = leftPath_v;
+                    }
+                    tmpCost = (float) size_v * (float) pre2revkrSum2[w_in_preL] + cost_Rpointer_v[w];
+                    if (tmpCost < minCost) {
+                        minCost = tmpCost;
+                        strategyPath = rightPath_v;
+                    }
+                    tmpCost = (float) size_v * (float) pre2descSum2[w_in_preL] + cost_Ipointer_v[w];
+                    if (tmpCost < minCost) {
+                        minCost = tmpCost;
+                        strategyPath = (Integer)delta[v_in_preL][w_in_preL] + 1;
+                    }
+                    tmpCost = (float) size_w * (float) krSum_v + cost2_L[w];
+                    if (tmpCost < minCost) {
+                        minCost = tmpCost;
+                        strategyPath = -(preR_to_preL_2[preL_to_preR_2[w_in_preL] + size_w - 1] + pathIDOffset + 1);
+                    }
+                    tmpCost = (float) size_w * (float) revkrSum_v + cost2_R[w];
+                    if (tmpCost < minCost) {
+                        minCost = tmpCost;
+                        strategyPath = w_in_preL + size_w - 1 + pathIDOffset + 1;
+                    }
+                    tmpCost = (float) size_w * (float) descSum_v + cost2_I[w];
+                    if (tmpCost < minCost) {
+                        minCost = tmpCost;
+                        strategyPath = cost2_path[w] + pathIDOffset + 1;
+                    }
+                }
+
+                if (parent_v_preL != -1) {
+                    cost_Rpointer_parent_v[w] += minCost;
+                    tmpCost = -minCost + cost1_I[v][w];
+                    if (tmpCost < cost1_I[parent_v_postL][w]) {
+                        cost_Ipointer_parent_v[w] = tmpCost;
+                        strategypointer_parent_v[w_in_preL] = delta[v_in_preL][w_in_preL];
+                    }
+                    if (nodeType_R_1[v_in_preL]) {
+                        cost_Ipointer_parent_v[w] += cost_Rpointer_parent_v[w];
+                        cost_Rpointer_parent_v[w] += cost_Rpointer_v[w] - minCost;
+                    }
+                    if (nodeType_L_1[v_in_preL]) {
+                        cost_Lpointer_parent_v[w] += cost_Lpointer_v[w];
+                    } else {
+                        cost_Lpointer_parent_v[w] += minCost;
+                    }
+                }
+                if (parent_w_preL != -1) {
+                    cost2_R[parent_w_postL] += minCost;
+                    tmpCost = -minCost + cost2_I[w];
+                    if (tmpCost < cost2_I[parent_w_postL]) {
+                        cost2_I[parent_w_postL] = tmpCost;
+                        cost2_path[parent_w_postL] = cost2_path[w];
+                    }
+                    if (nodeType_R_2[w_in_preL]) {
+                        cost2_I[parent_w_postL] += cost2_R[parent_w_postL];
+                        cost2_R[parent_w_postL] += cost2_R[w] - minCost;
+                    }
+                    if (nodeType_L_2[w_in_preL]) {
+                        cost2_L[parent_w_postL] += cost2_L[w];
+                    } else {
+                        cost2_L[parent_w_postL] += minCost;
+                    }
+                }
+                delta[v_in_preL][w_in_preL] = strategyPath;
+            }
+
+            if (!this->it1->isLeaf(v_in_preL)) {
+                fillArray(cost1_L[v], 0.0f);
+                fillArray(cost1_R[v], 0.0f);
+                fillArray(cost1_I[v], 0.0f);
+                rowsToReuse_L.push(cost1_L[v]);
+                rowsToReuse_R.push(cost1_R[v]);
+                rowsToReuse_I.push(cost1_I[v]);
+            }
+        }
+    }
+
     //--------------------------------------------------------------------------
 
     /**
